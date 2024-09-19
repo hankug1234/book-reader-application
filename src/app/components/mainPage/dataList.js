@@ -1,10 +1,10 @@
 import Card from "../../utils/components/swiperCards/card";
-
+import SwiperCards from "../../utils/components/swiperCards/swiperCards";
 
 const DataList = ()=>{
     return (
-        <div style = {{width:"220px", height:"310px"}} >
-            <Card url={""}/>
+        <div>
+            <SwiperCards perview="5" row="2" space="10"/>
         </div>
     );
 }

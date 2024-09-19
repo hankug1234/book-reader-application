@@ -9,7 +9,7 @@ import './css/swiperCards.css';
 import Card from "./card";
 
 
-const SwiperCards = ({perview,row,space}) => {
+const SwiperCards = ({perview,row,space,url}) => {
     return (
         <>
           <Swiper
@@ -24,37 +24,15 @@ const SwiperCards = ({perview,row,space}) => {
             modules={[Grid, Pagination]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Card url={"./utils/components/swiperCards/images/card.png"}/>
-            </SwiperSlide>
-            
+            {
+              [...Array(perview * row).keys()].map(key =>{
+                return (
+                  <SwiperSlide key={key}>
+                    <Card url={url}/>
+                  </SwiperSlide>
+                )
+              })
+            }
           </Swiper>
         </>
       );

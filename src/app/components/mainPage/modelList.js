@@ -1,9 +1,9 @@
-import SwiperCards from "../../utils/components/swiperCards/swiperCards";
+import SwiperPanorama from "../../utils/components/swiperPanorama/swiperPanorama";
 
 const ModelList = ()=>{
     return (
         <div>
-            <SwiperCards perview="3" row="2" space="15"/>
+            <SwiperPanorama url={""}/>
         </div>
     );
 }

@@ -12,6 +12,7 @@ const Card = ({url}) => {
         const y = e.nativeEvent.offsetY;
         setCardPosition({x:(-2/15 * y +20),y:(1/5 * x -20),bp:(5*x+5*y)})
         setIsMouseLeave(false)
+        console.log(x,y)
     }
 
     const cardLoatateClear = (_) => {
@@ -19,7 +20,7 @@ const Card = ({url}) => {
     }
 
     return (
-        <>
+        <div className="paranomaCard">
             <div className="card" onMouseMove={cardLotate} onMouseLeave={cardLoatateClear}
              style={
               isMouseLeave ? {transform: `perspective(600px) rotateX(0deg) rotateY(0deg)`, transition: `transform 2s ease`} :
@@ -27,7 +28,7 @@ const Card = ({url}) => {
              }>
                 <div className="overlay" style={isMouseLeave ? {filter: "opacity(0)"} : {backgroundPosition: `${cardPosition.bp}%`}}/>
              </div> 
-        </>
+        </div>
     );
 
 } 
