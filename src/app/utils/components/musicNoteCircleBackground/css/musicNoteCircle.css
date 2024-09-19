@@ -1,0 +1,23 @@
+  .music-note-circle {
+    z-index: 10;
+    height: 90vmin;
+    pointer-events: none;
+    position: relative;
+    top: 13%;
+    left: 27%;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .music-note-circle {
+      animation: music-note-circle-spin infinite 20s linear;
+    }
+  }
+
+  @keyframes music-note-circle-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

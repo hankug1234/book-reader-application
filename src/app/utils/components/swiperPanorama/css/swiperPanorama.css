@@ -9,12 +9,12 @@
   }
   
   .swiper-coverflow {
-    width: 800px;
+    width: 100%;
     height: fit-content;
     /*height: 100vh;*/
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: white;
+    background-color: #282c34;
   }
   
   .swiper-slide {
@@ -28,3 +28,4 @@
     display: block;
     width: 100%;
   }
+

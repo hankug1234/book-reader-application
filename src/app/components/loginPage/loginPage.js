@@ -1,9 +1,7 @@
-
-import logo from './images/logo.svg';
 import './css/LoginPage.css';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Link } from 'react-router-dom';
-
+import MusicNoteCircle from '../../utils/components/musicNoteCircle/musicNoteCircle';
 
 const LoginPage = () => {
 
@@ -13,7 +11,7 @@ const LoginPage = () => {
   return (
     <div className="LoginPage">
       <header className="Login-header">
-        <img src={logo} className="Login-logo" alt="logo" />
+        <MusicNoteCircle/>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input placeholder='Enter ID' class="InputField" {...register("id")}/>
           <br/>
