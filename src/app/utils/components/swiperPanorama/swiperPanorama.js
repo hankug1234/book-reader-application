@@ -9,18 +9,19 @@ import './css/swiperPanorama.css';
 import { EffectCoverflow, Pagination} from 'swiper/modules';
 
 const SwiperPanorama = (url) => {
-  return (
-    
+  
+    return (
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={'auto'}
+        loop={true}
         coverflowEffect={{
-          rotate: 50,
+          rotate: 45,
           stretch: 0,
           depth: 100,
-          modifier: 1,
+          modifier: -1,
           slideShadows: true,
         }}
         pagination={{
