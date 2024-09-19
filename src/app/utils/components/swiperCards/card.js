@@ -9,8 +9,8 @@ const Card = ({url}) => {
 
     const cardLotate = (e)=>{
         const x = e.nativeEvent.offsetX;
-        const y = e.nativeEvent.offsetX;
-        setCardPosition({x:(2/15 * y -20),y:(-1/5 * x +20),bp:(5*x+5*y)})
+        const y = e.nativeEvent.offsetY;
+        setCardPosition({x:(-2/15 * y +20),y:(1/5 * x -20),bp:(3*x+3*y)})
         setIsMouseLeave(false)
         console.log(x,y)
     }
@@ -23,11 +23,14 @@ const Card = ({url}) => {
         <>
             <div className="card" onMouseMove={cardLotate} onMouseLeave={cardLoatateClear}
              style={
-             {transform: [{perspective:'350px'}, {rotateY:`${cardPosition.y}deg`}, {rotateX:`${cardPosition.x}dge`}] ,backgroundPosition: `${cardPosition.bp}%`}
-             }/>
+              isMouseLeave ? {transform: `perspective(600px) rotateX(0deg) rotateY(0deg)`, transition: `transform 3s ease`} :
+             {transform:`perspective(600px) rotateX(${cardPosition.x}deg) rotateY(${cardPosition.y}deg)`}
+             }>
+                <div className="overlay" style={isMouseLeave ? {filter: "opacity(0)"} : {backgroundPosition: `${cardPosition.bp}%`}}/>
+             </div> 
         </>
     );
 
-}
-//<div className="overlay" style={isMouseLeave&&{filter: "opacity(0)"}}/> isMouseLeave ? {transform: [{perspective:'350px'}, {rotateY:`0deg`}, {rotateX:`0dge`}]} : 
+} 
+//(5*x+5*y)
 export default Card

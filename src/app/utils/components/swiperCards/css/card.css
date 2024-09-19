@@ -1,7 +1,8 @@
 .card {
     width: 220px; height: 310px; 
     background-size: cover;
-    background-image: url("../images/card.png");
+    /*background-image: url("../images/card.png");*/
+    background-color: antiquewhite;
 }
 
 .overlay {
@@ -12,5 +13,6 @@
   background-size: 150% 150%;
   background-position: 100%;
   filter: brightness(1.2) opacity(0.8);
+  transition: 1s filter linear;
   mix-blend-mode: color-dodge;
 }
