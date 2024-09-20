@@ -1,19 +1,19 @@
-  .music-note-circle {
+  .music-note-circle-background {
     z-index: 10;
     height: 90vmin;
     pointer-events: none;
     position: relative;
-    top: 13%;
-    left: 27%;
+    top: 50%;
+    right: -28%;
   }
   
   @media (prefers-reduced-motion: no-preference) {
-    .music-note-circle {
+    .music-note-circle-background {
       animation: music-note-circle-spin infinite 20s linear;
     }
   }
 
-  @keyframes music-note-circle-spin {
+  @keyframes music-note-circle-background-spin {
     from {
       transform: rotate(0deg);
     }

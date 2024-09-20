@@ -14,7 +14,7 @@ const SwiperPanorama = (url) => {
     return (
       <>
         <MusicNoteCircle/>
-        <div style={{position: "absolute", top:"13%", left:"-27%", zIndex: 100, opacity:"100%"}}>
+        <div className="swiperPanorama">
           <Swiper
             effect={'coverflow'}
             grabCursor={true}
@@ -23,7 +23,7 @@ const SwiperPanorama = (url) => {
             loop={true}
             coverflowEffect={{
               rotate: 12,
-              stretch: 0,
+              stretch: 15,
               depth: 100,
               modifier: -1,
               slideShadows: false,

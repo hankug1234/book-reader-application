@@ -1,20 +1,12 @@
-  
-  body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
-  
+    
   .swiper-coverflow {
     width: 100%;
     height: fit-content;
     /*height: 100vh;*/
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: #282c34;
+    background-color: transparent;
+    overflow: hidden;
   }
   
   .swiper-slide {
@@ -22,10 +14,21 @@
     background-size: cover;
     width: 300px;
     height: 300px;
+    background-color: transparent;
   }
   
   .swiper-slide img {
     display: block;
     width: 100%;
+  }
+
+  .swiperPanorama {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    opacity:100%;
+    width: 100vw;
   }
 
