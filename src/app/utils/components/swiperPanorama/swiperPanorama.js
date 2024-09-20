@@ -18,12 +18,13 @@ const SwiperPanorama = (url) => {
           <Swiper
             effect={'coverflow'}
             grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={'auto'}
+            centeredSlides={false}
+            slidesPerView={5}
             loop={true}
+            speed={1000}
             coverflowEffect={{
               rotate: 12,
-              stretch: 15,
+              stretch: 32,
               depth: 100,
               modifier: -1,
               slideShadows: false,
@@ -35,7 +36,7 @@ const SwiperPanorama = (url) => {
             className="mySwiper"
           >
             {
-                [...Array(9).keys()].map( path =>{
+                [...Array(12).keys()].map( path =>{
                 return (
                     <SwiperSlide key={path}>
                         <Card url={path}/>

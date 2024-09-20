@@ -2,6 +2,7 @@
     width: 220px; height: 310px; 
     background-size: cover;
     background-color: gainsboro;
+    box-shadow: 0 2px 10px 0px #e6e4e4;
   }
 
 
