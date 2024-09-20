@@ -6,7 +6,7 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import './css/swiperCards.css';
 
-import Card from "./card";
+import Card from "../card/card";
 
 
 const SwiperCards = ({perview,row,space,url}) => {

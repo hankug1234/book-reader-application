@@ -32,3 +32,8 @@
     width: 100vw;
   }
 
+  .paranomaCard {
+    z-index: 999;
+  }
+  
+

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Card from './card';
+import Card from '../card/card';
 import MusicNoteCircle from '../musicNoteCircleBackground/musicNoteCircle';
 
 import 'swiper/css';
@@ -39,7 +39,9 @@ const SwiperPanorama = (url) => {
                 [...Array(12).keys()].map( path =>{
                 return (
                     <SwiperSlide key={path}>
+                      <div className="paranomaCard">
                         <Card url={path}/>
+                      </div>
                     </SwiperSlide>
                 )
                 })

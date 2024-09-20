@@ -1,11 +1,10 @@
 .card {
     width: 220px; height: 310px; 
     background-size: cover;
+    /*background-image: url("../images/card.png");*/
     background-color: gainsboro;
-    box-shadow: 0 2px 10px 0px #e6e4e4;
-  }
-
-
+    box-shadow: 0 2px 10px 0px #e6e3e3;
+}
 
 .overlay {
   position: absolute;
@@ -15,10 +14,6 @@
   background-size: 150% 150%;
   background-position: 100%;
   filter: brightness(1.2) opacity(0.8);
+  transition: 1s filter linear;
   mix-blend-mode: color-dodge;
-  
-}
-
-.paranomaCard {
-  z-index: 999;
 }
