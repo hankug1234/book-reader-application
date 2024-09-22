@@ -40,7 +40,7 @@ const SwiperPanorama = (url) => {
                 return (
                     <SwiperSlide key={path}>
                       <div className="paranomaCard">
-                        <Card url={path}/>
+                        <Card/>
                       </div>
                     </SwiperSlide>
                 )

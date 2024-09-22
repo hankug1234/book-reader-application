@@ -7,9 +7,29 @@ import 'swiper/css/pagination';
 import './css/swiperCards.css';
 
 import Card from "../card/card";
+import checkImage from './images/check.png'
+
+import { useState } from "react";
 
 
-const SwiperCards = ({perview,row,space,url}) => {
+const SwiperCards = ({perview,row,space,isCheckable,callback}) => {
+
+    const [clicked, setClicked] = useState(new Set([]))
+
+    const cardClick = (e,key) => {
+      setClicked((s)=>{
+        var ns = new Set([...s])
+        if(s.has(key)){
+          ns.delete(key)
+        }else{
+          ns.add(key)
+        }
+        console.log(isCheckable, clicked.has(key))
+        return ns
+      })
+      callback ? callback() : (()=>false)()
+    }
+
     return (
         <>
           <Swiper
@@ -25,10 +45,14 @@ const SwiperCards = ({perview,row,space,url}) => {
             className="mySwiper"
           >
             {
-              [...Array(perview * row).keys()].map(key =>{
+              [...Array(16).keys()].map(key =>{
                 return (
                   <SwiperSlide key={key}>
-                    <Card url={url}/>
+                    <Card cardClick={(e) => {cardClick(e,key)}}>
+                      {
+                        isCheckable && clicked.has(key)? <img src={checkImage} alt="check" className="check-image"/> : <></>
+                      }
+                    </Card>
                   </SwiperSlide>
                 )
               })

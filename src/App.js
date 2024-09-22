@@ -3,18 +3,37 @@ import LoginPage from './app/components/loginPage/loginPage';
 import MainPage from './app/components/mainPage/mainPage';
 import { Route,Routes} from 'react-router-dom';
 import DataList from './app/components/mainPage/dataList';
-import Train from './app/components/mainPage/train';
+import Train from './app/components/mainPage/train/train';
 import ModelList from './app/components/mainPage/modelList';
+import TtsTrain from './app/components/mainPage/train/ttsTrain';
+import RvcTrain from './app/components/mainPage/train/rvcTrain';
+import Register from './app/components/mainPage/register/register';
+import TtsDataRegister from './app/components/mainPage/register/ttsDataRegister';
+import RvcDataRegister from './app/components/mainPage/register/rvcDataRegister';
+import CardSelectionPage from './app/utils/components/cardSelection/cardSelection';
 
 function App() {
   return (
     <Routes>
       <Route path="/"  element={<LoginPage />}/>
       <Route element={<MainPage />}>
-        <Route path="/train" element={<Train/>}/>
+
+        <Route element={<Train/>}>
+          <Route path="/tts" element={<TtsTrain/>}/>
+          <Route path="/rvc" element={<RvcTrain/>}/>
+        </Route>
+
+        <Route element={<Register/>}>
+          <Route path="/tts-data-register" element={<TtsDataRegister/>}/>
+          <Route path="/rvc-data-register" element={<RvcDataRegister/>}/>
+        </Route>
+
         <Route path="/models" element={<ModelList/>}/>
+
         <Route path= "/datas" element={<DataList/>}/>
+
       </Route>
+      <Route path= "/selection" element={<CardSelectionPage/>}/>
     </Routes>
   );
 }

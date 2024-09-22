@@ -10,7 +10,8 @@ const MainPage = () => {
             <div className="topnav">
                 <Link className="topnav-link" to="/models">MODELS</Link>
                 <Link className="topnav-link" to="/datas">DATAS</Link>
-                <Link className="topnav-link" to="/train">TRAIN</Link>
+                <Link className="topnav-link" to="/rvc">TRAIN</Link>
+                <Link className="topnav-link" to="/rvc-data-register">REGIST</Link>
             </div>
         </div>
         <div className="main-body">

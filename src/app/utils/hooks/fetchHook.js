@@ -28,7 +28,7 @@ const useFetch = (url,method,body,setting) => {
 
     },[method,body,url,setting])
 
-    return [result,isLoading,ok.state]
+    return [result,isLoading,ok,state]
 
 }
 

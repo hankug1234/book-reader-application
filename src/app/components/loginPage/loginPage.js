@@ -13,15 +13,15 @@ const LoginPage = () => {
       <header className="Login-header">
         <MusicNoteCircle/>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input placeholder='Enter ID' class="InputField" {...register("id")}/>
+          <input placeholder='Enter ID' className="InputField" {...register("id")}/>
           <br/>
           <br/>
-          <input placeholder='Enter PW' class="InputField"  type='password' {...register("password")}/>
+          <input placeholder='Enter PW' className="InputField"  type='password' {...register("password")}/>
         </form>
         <br/>
         <div>
           <Link className="link" to="">sign up</Link>
-          <Link className="link sign-in" to="/train">sign in</Link>
+          <Link className="link sign-in" to="/models">sign in</Link>
         </div>
       </header>
     </div>

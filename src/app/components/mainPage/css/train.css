@@ -1,0 +1,34 @@
+.train{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.model-train-form{
+    padding: 10px;
+    height: 80vh;
+}
+
+.train:nth-child(1) {
+    flex-grow: 1;
+	
+}
+.train:nth-child(2) {
+	flex-grow: 1;
+}
+
+.selection-button{
+    width: 200;
+    height: 100;
+    background-color: transparent;
+    border: solid 1px aliceblue;
+    color:aliceblue;
+    font-size: 20px;
+    margin-right: 5px;
+    padding: 10px 25px 10px 25px;
+}
+
+.image {
+    
+}
