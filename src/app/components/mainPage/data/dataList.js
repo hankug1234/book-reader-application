@@ -1,4 +1,4 @@
-import SwiperCards from "../../utils/components/swiperCards/swiperCards";
+import SwiperCards from "../../../utils/components/swiperCards/swiperCards";
 
 const DataList = ()=>{
     return (

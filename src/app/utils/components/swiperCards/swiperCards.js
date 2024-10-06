@@ -6,7 +6,7 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import './css/swiperCards.css';
 
-import Card from "../card/card";
+import ResizableCard from "../resizableCard/resizableCard";
 import checkImage from './images/check.png'
 
 import { useState } from "react";
@@ -24,7 +24,6 @@ const SwiperCards = ({perview,row,space,isCheckable,callback}) => {
         }else{
           ns.add(key)
         }
-        console.log(isCheckable, clicked.has(key))
         return ns
       })
       callback ? callback() : (()=>false)()
@@ -48,11 +47,11 @@ const SwiperCards = ({perview,row,space,isCheckable,callback}) => {
               [...Array(16).keys()].map(key =>{
                 return (
                   <SwiperSlide key={key}>
-                    <Card cardClick={(e) => {cardClick(e,key)}}>
+                    <ResizableCard width={170} height={260} cardClick={(e) => {cardClick(e,key)}}>
                       {
                         isCheckable && clicked.has(key)? <img src={checkImage} alt="check" className="check-image"/> : <></>
                       }
-                    </Card>
+                    </ResizableCard>
                   </SwiperSlide>
                 )
               })

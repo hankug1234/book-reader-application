@@ -12,7 +12,7 @@ const Register = ()=>{
     return (
         <div className="train">
             <div>
-                <ResizableCard width={400} height={600}/>
+                <ResizableCard width={300} height={500}/>
             </div>
             <div  className="model-train-form">
                 <div>

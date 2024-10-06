@@ -2,3 +2,10 @@
     margin-left: 15px;
     margin-right: 10px;
 }
+
+fieldset{
+    border-color:aliceblue;
+    border-style:aliceblue;
+    border-width: 1px;
+    width:190px
+}

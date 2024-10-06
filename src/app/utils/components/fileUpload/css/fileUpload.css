@@ -1,6 +1,6 @@
 .file-upload{
-    width: 200;
-    height: 100;
+    width: 165px;
+    height: 20px;
     background-color: transparent;
     border: solid 1px aliceblue;
     color:aliceblue;
@@ -9,6 +9,7 @@
     margin-right: 5px;
     padding: 10px 25px 10px 25px;
     text-overflow: ellipsis;
+    text-align: center;
 }
 
 #file{

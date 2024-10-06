@@ -2,7 +2,7 @@
 import { useState } from "react";
 import './css/card.css'
 
-const ResizableCard = ({children,width,height}) => {
+const ResizableCard = ({children,width,height,cardClick}) => {
 
     const [cardPosition, setCardPosition] = useState({x:0,y:0,bp:0})
     const [isMouseLeave, setIsMouseLeave] = useState(true)
@@ -20,7 +20,7 @@ const ResizableCard = ({children,width,height}) => {
 
     return (
         <>
-            <div className="card" onMouseMove={cardLotate} onMouseLeave={cardLoatateClear}
+            <div className="card" onMouseMove={cardLotate} onMouseLeave={cardLoatateClear} onClick={cardClick}
              style={
               isMouseLeave ? {transform: `perspective(600px) rotateX(0deg) rotateY(0deg)`, transition: `transform 2s ease`, width:`${width}px`, height:`${height}px`} :
              {transform:`perspective(600px) rotateX(${cardPosition.x}deg) rotateY(${cardPosition.y}deg)`, transition: `transform 0.3s ease` , width:`${width}px`, height:`${height}px`}

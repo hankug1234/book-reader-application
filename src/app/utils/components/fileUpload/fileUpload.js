@@ -29,7 +29,7 @@ const FileUploader = ({setBase64}) => {
                 <label for="file">
                     <div className="file-upload">
                         {
-                            fileName? fileName : "FILE upload "
+                            fileName? fileName : "FILE UPLOAD "
                         }
                     </div>
                 </label>
