@@ -24,7 +24,7 @@ const Train = ()=>{
         <div className="train">
             <div>
                 <ResizableCard width={300} height={500}>
-                    <img src={path.indexOf("rvc") ? rvcImage : ttsImage} style={{width:"300px", height:"500px"}} alt="default"/>
+                    <img src={path.indexOf("rvc") > 0 ? rvcImage : ttsImage} style={{width:"300px", height:"500px"}} alt="default"/>
                 </ResizableCard>
             </div>
             <div  className="model-train-form">
