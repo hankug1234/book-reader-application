@@ -7,9 +7,29 @@
     font-size: 20px;
     align-content: center;
     margin-right: 5px;
+    padding: 10px 25px 15px 25px;
+    text-overflow: ellipsis;
+    text-align: center;
+    vertical-align: center;
+    align-items: center;
+    text-overflow:ellipsis;
+}
+
+.dataset-upload{
+    width: 165px;
+    height: 20px;
+    background-color: transparent;
+    border: solid 1px aliceblue;
+    color:aliceblue;
+    font-size: 15px;
+    align-content: center;
+    margin-right: 5px;
     padding: 10px 25px 10px 25px;
     text-overflow: ellipsis;
     text-align: center;
+    vertical-align: center;
+    align-items: center;
+    text-overflow:ellipsis;
 }
 
 #file{

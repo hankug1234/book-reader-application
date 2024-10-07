@@ -11,19 +11,19 @@ const RvcTrain = () => {
         {
             <form>
                 <br/>
-                <input placeholder='RVC model name' className="InputField"/>
+                <input placeholder='RVC model name' className="InputField-train"/>
                 <br/>
                 <br/>
                 <br/>
-                <input placeholder='Batch size' className="InputField"/>
+                <input placeholder='Batch size' className="InputField-train"/>
                 <br/>
                 <br/>
                 <br/>
-                <input placeholder='Save epoch' className="InputField"/>
+                <input placeholder='Save epoch' className="InputField-train"/>
                 <br/>
                 <br/>
                 <br/>
-                <input placeholder='Total epoch' className="InputField"/>
+                <input placeholder='Total epoch' className="InputField-train"/>
                 <br/>
                 <br/>
                 <br/>

@@ -12,7 +12,19 @@ const TtsTrain = () => {
         {
             <form>
                 <br/>
-                <input placeholder='TTS model name' className="InputField"/>
+                <input placeholder='TTS model name' className="InputField-train"/>
+                <br/>
+                <br/>
+                <br/>
+                <input placeholder='Batch size' className="InputField-train"/>
+                <br/>
+                <br/>
+                <br/>
+                <input placeholder='Save epoch' className="InputField-train"/>
+                <br/>
+                <br/>
+                <br/>
+                <input placeholder='Total epoch' className="InputField-train"/>
                 <br/>
                 <br/>
                 <br/>

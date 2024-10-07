@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react"
 import "./css/fileUpload.css"
 
-const FileUploader = ({setBase64}) => {
+const DatasetUploader = ({name}) => {
 
     const inputEl = useRef(null);
     const [fileName, setFileName] = useState(null);
@@ -10,7 +10,6 @@ const FileUploader = ({setBase64}) => {
       const files = event.target && event.target.files;
       if (files && files[0]) {
         setFileName(event.target.files[0].name);
-        setBase64(event.target.files[0])
       }
     }, []);
   
@@ -27,9 +26,9 @@ const FileUploader = ({setBase64}) => {
         <>
             <div>
                 <label for="file">
-                    <div className="file-upload">
+                    <div className="dataset-upload">
                         {
-                            fileName? fileName : "IMAGE UPLOAD "
+                            fileName? fileName : `${name} UPLOAD `
                         }
                     </div>
                 </label>
@@ -39,4 +38,4 @@ const FileUploader = ({setBase64}) => {
     )
 }
 
-export default FileUploader
+export default DatasetUploader
