@@ -3,14 +3,22 @@ import "./css/fileUpload.css"
 
 const FileUploader = ({setBase64}) => {
 
+    const allowedExtensions = ['jpg', 'png', 'gif','svc']
     const inputEl = useRef(null);
     const [fileName, setFileName] = useState(null);
 
     const fileInputHandler = useCallback((event) => {
       const files = event.target && event.target.files;
       if (files && files[0]) {
-        setFileName(event.target.files[0].name);
-        setBase64(event.target.files[0])
+        const file_name = event.target.files[0].name
+        const extension = file_name.split('.').pop().toLowerCase();
+
+        if(allowedExtensions.includes(extension)){
+          setFileName(file_name);
+          setBase64(event.target.files[0])
+        }else{
+          alert(`file extension must on jpg, png, git, svc`)
+        }
       }
     }, []);
   

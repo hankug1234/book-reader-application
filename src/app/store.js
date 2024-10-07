@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import rvcTrainReducer from '../features/train/rvcTrainSlice';
+import ttsTrainReducer from '../features/train/ttsTrainSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    rvcTrain: rvcTrainReducer,
+    ttsTrain: ttsTrainReducer,
   },
 });
