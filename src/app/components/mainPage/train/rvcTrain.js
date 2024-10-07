@@ -3,15 +3,14 @@ import FileUploader from "../../../utils/components/fileUpload/fileUpload"
 import { useOutletContext } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch} from '../../../../features/train/rvcTrainSlice';
-import { setImageAsync } from "../../../../features/train/rvcTrainSlice";
+import { setRvcImageAsync } from "../../../../features/train/rvcTrainSlice";
 
 const RvcTrain = () => {
 
-    const rvcTrainSelector = (state) => state.rvcTrain
-    const rvcTrainState = useSelector(rvcTrainSelector)
+    const rvcTrainState = useSelector((state) => state.rvcTrain)
     const {register} = useForm(rvcTrainState)
     const dispatch = useDispatch()
-    const [setBase64,onclick] = useOutletContext()
+    const [onclick] = useOutletContext()
 
     return (
         <>
@@ -42,7 +41,7 @@ const RvcTrain = () => {
                 <br/>
                 <br/>
                 <br/>
-                <FileUploader setBase64={(file) => dispatch(setImageAsync(file))}/>
+                <FileUploader setBase64={(file) => dispatch(setRvcImageAsync(file))}/>
                 <br/>
                 <br/>
                 <button className="selection-button" onClick={onclick}>

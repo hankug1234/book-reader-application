@@ -9,7 +9,7 @@ const initialState = {
     datasetId: "",
 }
 
-export const setImageAsync = createAsyncThunk(
+export const setRvcImageAsync = createAsyncThunk(
   'rvcTrain/fetchImage',
   async (file) => {
       return await new Promise((resolve,reject) =>{
@@ -50,10 +50,10 @@ export const trainSlice = createSlice({
     },
     extraReducers: (builder) => {
       builder
-        .addCase(setImageAsync.pending, (state) => {
+        .addCase(setRvcImageAsync.pending, (state) => {
           state.image = "";
         })
-        .addCase(setImageAsync.fulfilled, (state, action) => {
+        .addCase(setRvcImageAsync.fulfilled, (state, action) => {
           state.image = action.payload;
         });
     },

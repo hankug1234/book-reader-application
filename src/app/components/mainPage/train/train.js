@@ -1,10 +1,9 @@
-import { useForm, SubmitHandler } from "react-hook-form"
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import "../css/train.css"
 import ResizableCard from "../../../utils/components/resizableCard/resizableCard";
-import useBase64 from "../../../utils/hooks/convertBase64";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 const Train = ()=>{
     const [isDataSelection, setIsDataSelection] = useState(false)
@@ -15,19 +14,21 @@ const Train = ()=>{
     const unclick = () => {
         setIsDataSelection(false)
     }
-    const [base64, setBase64] = useBase64("")
+
+    const path = useLocation().pathname
+
     const rvcImage = useSelector((state) => state.rvcTrain.image)
-    console.log(rvcImage)
+    const ttsImage = useSelector((state) => state.ttsTrain.image)
 
     return (
         <div className="train">
             <div>
                 <ResizableCard width={300} height={500}>
-                    <img src={rvcImage} style={{width:"300px", height:"500px"}} alt="default"/>
+                    <img src={path.indexOf("rvc") ? rvcImage : ttsImage} style={{width:"300px", height:"500px"}} alt="default"/>
                 </ResizableCard>
             </div>
             <div  className="model-train-form">
-                <Outlet context={[setBase64,onclick,unclick,isDataSelection]}/>
+                <Outlet context={[onclick,unclick,isDataSelection]}/>
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom"
 
 const TrainRegisterForm = () => {
 
-    const [setBase64,onclick,unclick,isDataSelection] = useOutletContext()
+    const [onclick,unclick,isDataSelection] = useOutletContext()
     const location = useLocation().pathname
 
     return (
@@ -22,7 +22,7 @@ const TrainRegisterForm = () => {
                     <Link className={ location.indexOf("rvc") >= 0 ? "topnav-link-current" : "topnav-link"} to="/rvc-train">RVC</Link>
                     <Link className={ location.indexOf("tts") >= 0 ? "topnav-link-current" : "topnav-link"} to="/tts-train">TTS</Link>
                 </div>
-                <Outlet context={[setBase64,onclick]}/>
+                <Outlet context={[onclick]}/>
             </>
 
         }
