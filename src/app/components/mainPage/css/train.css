@@ -41,6 +41,7 @@
     color: white;
     width: 217px;
     text-overflow:ellipsis;
+    margin-top: 15px;
   }
 
   .InputField-regist {
@@ -55,5 +56,6 @@
     color: white;
     width: 217px;
     text-overflow:ellipsis;
+    margin-top: 15px;
   }
 

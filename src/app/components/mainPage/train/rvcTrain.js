@@ -21,19 +21,13 @@ const RvcTrain = () => {
                  onChange={(e)=>dispatch(setModelName(e.target.value))}
                  placeholder='RVC model name' className="InputField-train" value={rvcTrainState.modelName}/>
                 <br/>
-                <br/>
-                <br/>
                 <input {...register("batchSize", { required: true })}
                 onChange={(e)=>dispatch(setBatchSize(e.target.value))} 
                 placeholder='Batch size' className="InputField-train" value={rvcTrainState.batchSize}/>
                 <br/>
-                <br/>
-                <br/>
                 <input {...register("saveEpoch", { required: true, valueAsNumber: true})}
                 onChange={(e)=>dispatch(setSaveEpoch(e.target.value))} 
                 placeholder='Save epoch' className="InputField-train" value={rvcTrainState.saveEpoch}/>
-                <br/>
-                <br/>
                 <br/>
                 <input {...register("totalEpoch", { required: true,  valueAsNumber: true})}
                 onChange={(e)=>dispatch(setTotalEpoch(e.target.value))} 

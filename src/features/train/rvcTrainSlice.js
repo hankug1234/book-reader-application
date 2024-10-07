@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import defaultImage from "./images/logo.svg"
 
 const initialState = {
     modelName: "",
     batchSize: null,
     saveEpoch: null,
     totalEpoch: null,
-    image: "",
+    image: defaultImage,
     imageName: null,
     datasetId: "",
 }

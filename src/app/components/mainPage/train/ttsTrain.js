@@ -22,19 +22,13 @@ const TtsTrain = () => {
                  onChange={(e)=>dispatch(setModelName(e.target.value))}
                  placeholder='TTS model name' className="InputField-train" value={ttsTrainState.modelName}/>
                 <br/>
-                <br/>
-                <br/>
                 <input {...register("batchSize", { required: true })}
                 onChange={(e)=>dispatch(setBatchSize(e.target.value))} 
                 placeholder='Batch size' className="InputField-train" value={ttsTrainState.batchSize}/>
                 <br/>
-                <br/>
-                <br/>
                 <input {...register("saveEpoch", { required: true, valueAsNumber: true})}
                 onChange={(e)=>dispatch(setSaveEpoch(e.target.value))} 
                 placeholder='Save epoch' className="InputField-train" value={ttsTrainState.saveEpoch}/>
-                <br/>
-                <br/>
                 <br/>
                 <input {...register("totalEpoch", { required: true,  valueAsNumber: true})}
                 onChange={(e)=>dispatch(setTotalEpoch(e.target.value))} 
