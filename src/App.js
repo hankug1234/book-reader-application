@@ -12,6 +12,7 @@ import TtsDataRegister from './app/components/mainPage/register/ttsDataRegister'
 import RvcDataRegister from './app/components/mainPage/register/rvcDataRegister';
 import CardSelectionPage from './app/utils/components/cardSelection/cardSelection';
 import TrainRegisterForm from './app/components/mainPage/train/trainRegisterForm';
+import CardTest from './app/components/test/cardTest';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/models" element={<ModelList/>}/>
 
         <Route path= "/datas" element={<DataList/>}/>
+        <Route path= "/test" element={<CardTest/>}/>
 
       </Route>
       <Route path= "/selection" element={<CardSelectionPage/>}/>
