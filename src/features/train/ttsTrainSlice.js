@@ -6,6 +6,7 @@ const initialState = {
     saveEpoch: null,
     totalEpoch: null,
     image: "",
+    imageName: null,
     datasetId: "",
     language:"",
 }
@@ -50,6 +51,9 @@ export const trainSlice = createSlice({
       },
       setLanguage: (state,action) => {
         state.language = action.payload
+      },
+      setImageName: (state,action) => {
+        state.imageName = action.payload
       }
     },
     extraReducers: (builder) => {
@@ -63,5 +67,5 @@ export const trainSlice = createSlice({
       },
   });
 
-  export const {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setDataset,setLanguage}  = trainSlice.actions;
+  export const {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setDataset,setLanguage,setImageName}  = trainSlice.actions;
   export default trainSlice.reducer;

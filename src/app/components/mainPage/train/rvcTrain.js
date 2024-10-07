@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import FileUploader from "../../../utils/components/fileUpload/fileUpload"
 import { useOutletContext } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch} from '../../../../features/train/rvcTrainSlice';
+import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setImageName} from '../../../../features/train/rvcTrainSlice';
 import { setRvcImageAsync } from "../../../../features/train/rvcTrainSlice";
 
 const RvcTrain = () => {
@@ -40,7 +40,7 @@ const RvcTrain = () => {
                 placeholder='Total epoch' className="InputField-train" value={rvcTrainState.totalEpoch}/>
                 <br/>
                 <br/>
-                <FileUploader setBase64={(file) => dispatch(setRvcImageAsync(file))}/>
+                <FileUploader setBase64={(file) => dispatch(setRvcImageAsync(file))} setFileName={(imgName)=>dispatch(setImageName(imgName))} fileName={rvcTrainState.imageName}/>
                 <br/>
                 <button className="selection-button" onClick={onclick}>
                     {
