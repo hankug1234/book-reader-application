@@ -3,7 +3,7 @@ import RadioButtons from "../../../utils/components/radioGroup/radioGroup"
 import { useOutletContext } from "react-router-dom"
 import FileUploader from "../../../utils/components/fileUpload/fileUpload"
 import { useSelector, useDispatch } from "react-redux"
-import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch} from '../../../../features/train/ttsTrainSlice';
+import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setLanguage} from '../../../../features/train/ttsTrainSlice';
 import { setTtsImageAsync } from "../../../../features/train/ttsTrainSlice"
 
 const TtsTrain = () => {
@@ -12,7 +12,7 @@ const TtsTrain = () => {
     const {register} = useForm(ttsTrainState)
     const dispatch = useDispatch()
     const [onclick] = useOutletContext()
-
+    
     return (
         <>
         {
@@ -41,12 +41,9 @@ const TtsTrain = () => {
                 placeholder='Total epoch' className="InputField-train" value={ttsTrainState.totalEpoch}/>
                 <br/>
                 <br/>
-                <br/>
-                <RadioButtons label={"Language"} tags={['EN','JP','KR']}/>
-                <br/>
+                <RadioButtons label={"Language"} tags={['EN','JP','KR']} checked={(lang) => dispatch(setLanguage(lang))}/>
                 <br/>
                 <FileUploader setBase64={(file)=>dispatch(setTtsImageAsync(file))}/>
-                <br/>
                 <br/>
                 <button className="selection-button" onClick={onclick}>
                     {

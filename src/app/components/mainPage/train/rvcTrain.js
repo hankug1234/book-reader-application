@@ -40,9 +40,7 @@ const RvcTrain = () => {
                 placeholder='Total epoch' className="InputField-train" value={rvcTrainState.totalEpoch}/>
                 <br/>
                 <br/>
-                <br/>
                 <FileUploader setBase64={(file) => dispatch(setRvcImageAsync(file))}/>
-                <br/>
                 <br/>
                 <button className="selection-button" onClick={onclick}>
                     {

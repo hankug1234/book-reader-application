@@ -34,9 +34,9 @@ const  RadioGroup = ({ label, children }) => {
     );
   }
 
-const RadioButtons = ({tags,label}) => {
+const RadioButtons = ({tags,label,checked}) => {
     const[radioName, setRadioName] = useState("")
-
+    checked(radioName)
     return (
         <>
             <RadioGroup label = {label}>
