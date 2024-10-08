@@ -220,6 +220,51 @@
     }
 }
 
+@keyframes slide-left-hover {
+    0% {
+        transform:translateX(100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes slide-left-unhover {
+    to {
+        transform:translateX(100%);
+    }
+}
+
+@keyframes slide-top-hover {
+    0% {
+        transform:translateY(-100%);
+    }
+    100% {
+        transform:translateY(0%);
+    }
+}
+
+@keyframes slide-top-unhover {
+    to {
+        transform:translateY(-100%);
+    }
+}
+
+@keyframes slide-bottom-hover {
+    0% {
+        transform:translateY(100%);
+    }
+    100% {
+        transform:translateY(0%);
+    }
+}
+
+@keyframes slide-bottom-unhover {
+    to {
+        transform:translateY(100%);
+    }
+}
+
 @keyframes vertical-line-left-hover {
     0% {
         transform:translateX(-100%);

@@ -7,7 +7,9 @@ const CardTest = () => {
         <>
         <div class={"test-div"}>
             <ResizableCard width={300} height={500}>
-                    <h2>Text that will slide in from the left</h2>
+                    <h2 className={"cardType"}>TYPE</h2>
+                    <h2 className={"cardName"}>NAME</h2>
+                    <h2 className={"cardInfo"}>INFO</h2>
                     <div className={"vertical-line-left"}></div>
                     <div className={"vertical-line-right"}></div>
                     <div className={"horizontal-line-top"}></div>
