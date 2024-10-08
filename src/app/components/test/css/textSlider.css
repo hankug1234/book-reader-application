@@ -1,0 +1,345 @@
+
+.card:hover h2{
+    animation: slide-right-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    overflow: hidden;
+    color: black;
+    position: absolute;
+    z-index: -999;
+}
+
+.card h2{
+    animation: slide-right-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    position: absolute;
+    overflow: hidden;
+    color: black;
+    z-index: -999;
+}
+
+.card:hover .vertical-line-left{
+    animation: vertical-line-left-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-left : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    left: 0px;
+    margin-left: 15px;
+    position:absolute;
+    z-index: -999;
+}
+
+.card .vertical-line-left{
+    animation: vertical-line-left-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-left : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    left: 0px;
+    margin-left: 15px;
+    position:absolute;
+    z-index: -999;
+}
+
+.card:hover .vertical-line-right{
+    animation: vertical-line-right-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-right : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    right: 0px;
+    margin-right: 15px;
+    z-index: -999;
+    position:absolute;
+}
+
+.card .vertical-line-right{
+    animation: vertical-line-right-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-right : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    right: 0px;
+    margin-right: 15px;
+    z-index: -999;
+    position:absolute;
+}
+
+.card:hover .horizontal-line-top{
+    animation: horizontal-line-top-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: -999;
+    position:absolute;
+}
+
+.card .horizontal-line-top{
+    animation: horizontal-line-top-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: -999;
+    position:absolute;
+}
+
+.card:hover .horizontal-line-bottom{
+    animation: horizontal-line-bottom-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick solid goldenrod;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: -999;
+    position:absolute;
+}
+
+.card .horizontal-line-bottom{
+    animation: horizontal-line-bottom-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick solid goldenrod;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: -999;
+    position:absolute;
+}
+
+.card:hover .diagonal-line-top-right{
+    animation: diagonal-line-top-right-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(45deg);
+    
+}
+
+.card .diagonal-line-top-right{
+    animation: diagonal-line-top-right-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(45deg);
+   
+}
+
+.card:hover .diagonal-line-top-left{
+    animation: diagonal-line-top-left-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(-45deg);
+}
+
+.card .diagonal-line-top-left{
+    animation: diagonal-line-top-left-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick solid goldenrod;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(-45deg);
+}
+
+.card:hover .diagonal-line-bottom-right{
+    animation: diagonal-line-bottom-right-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick solid goldenrod;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(45deg);
+}
+
+.card .diagonal-line-bottom-right{
+    animation: diagonal-line-bottom-right-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick solid goldenrod;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(45deg);
+}
+
+.card:hover .diagonal-line-bottom-left{
+    animation: diagonal-line-bottom-left-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick solid goldenrod;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(-45deg);
+}
+
+.card .diagonal-line-bottom-left{
+    animation: diagonal-line-bottom-left-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick solid goldenrod;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: -999;
+    position:absolute;
+    transform: rotate(-45deg);
+}
+
+
+.test-div{
+    width: 100vw;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+@keyframes slide-right-hover {
+    0% {
+        transform:translateX(-100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes slide-right-unhover {
+    to {
+        transform:translateX(-100%);
+    }
+}
+
+@keyframes vertical-line-left-hover {
+    0% {
+        transform:translateX(-100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes vertical-line-left-unhover {
+    to {
+        transform:translateX(-100%);
+    }
+}
+
+@keyframes vertical-line-right-hover {
+    0% {
+        transform:translateX(100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes vertical-line-right-unhover {
+    to {
+        transform:translateX(100%);
+    }
+}
+
+@keyframes horizontal-line-top-hover {
+    0% {
+        transform:translateY(-100%);
+    }
+    100% {
+        transform:translateY(0%);
+    }
+}
+
+@keyframes horizontal-line-top-unhover {
+    to {
+        transform:translateY(-100%);
+    }
+}
+
+@keyframes horizontal-line-bottom-hover {
+    0% {
+        transform:translateY(100%);
+    }
+    100% {
+        transform:translateY(0%);
+    }
+}
+
+@keyframes horizontal-line-bottom-unhover {
+    to {
+        transform:translateY(100%);
+    }
+}
+
+@keyframes diagonal-line-top-right-hover {
+    0% {
+        transform: rotate(90deg);
+    }
+    100% {
+        
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes diagonal-line-top-right-unhover {
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes diagonal-line-top-left-hover {
+    0% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes diagonal-line-top-left-unhover {
+    to {
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes diagonal-line-bottom-right-hover {
+    0% {
+        transform: rotate(90deg);
+    }
+    100% {
+        
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes diagonal-line-bottom-right-unhover {
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes diagonal-line-bottom-left-hover {
+    0% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes diagonal-line-bottom-left-unhover {
+    to {
+        transform: rotate(-90deg);
+    }
+}

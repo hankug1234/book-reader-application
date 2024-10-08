@@ -3,6 +3,7 @@
     /*background-image: url("../images/card.png");*/
     background-color: gainsboro;
     box-shadow: 0 2px 10px 0px #e6e3e3;
+    overflow:hidden
 }
 
 .overlay {
