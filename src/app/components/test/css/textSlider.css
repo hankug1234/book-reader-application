@@ -1,5 +1,5 @@
 
-.card:hover h2{
+.card:hover .cardInfo{
     animation: slide-right-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
     overflow: hidden;
     color: black;
@@ -7,13 +7,50 @@
     z-index: -999;
 }
 
-.card h2{
+.card .cardInfo{
     animation: slide-right-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
     position: absolute;
     overflow: hidden;
     color: black;
     z-index: -999;
 }
+
+.card:hover .cardName{
+    animation: slide-bottom-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    overflow: hidden;
+    color: black;
+    position: absolute;
+    bottom : 0px;
+    z-index: -999;
+}
+
+.card .cardName{
+    animation: slide-bottom-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    position: absolute;
+    overflow: hidden;
+    color: black;
+    bottom : 0px;
+    z-index: -999;
+}
+
+.card:hover .cardType{
+    animation: slide-top-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    overflow: hidden;
+    color: black;
+    position: absolute;
+    top : 0px;
+    z-index: -999;
+}
+
+.card .cardType{
+    animation: slide-top-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    position: absolute;
+    overflow: hidden;
+    color: black;
+    top : 0px;
+    z-index: -999;
+}
+
 
 .card:hover .vertical-line-left{
     animation: vertical-line-left-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
