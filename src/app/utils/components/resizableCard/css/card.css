@@ -6,7 +6,7 @@
     overflow:hidden
 }
 
-.overlay {
+.r-overlay {
   position: absolute;
   background: linear-gradient(105deg,transparent 40%,rgba(255,219,112,0.8) 45%,rgba(132,50,255,0.6) 50%,transparent 54%);
   background-size: 150% 150%;
@@ -14,4 +14,9 @@
   filter: brightness(1.2) opacity(0.8);
   transition: 1s filter linear;
   mix-blend-mode: color-dodge;
+  z-index:150;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

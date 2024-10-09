@@ -1,5 +1,4 @@
 import ResizableCard from "../../utils/components/resizableCard/resizableCard";
-import "./css/textSlider.css"
 
 const CardTest = () => {
 

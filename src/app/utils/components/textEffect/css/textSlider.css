@@ -1,0 +1,298 @@
+
+.card:hover .cardInfo{
+    animation: slide-right-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    z-index: 300;
+    font-size: 13px;
+    width: 150px;
+    height: 15px;
+    text-overflow: ellipsis;
+}
+
+.card .cardInfo{
+    animation: slide-right-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    position: absolute;
+    overflow: hidden;
+    left: 0px;
+    z-index: 300;
+    font-size: 13px;
+    width: 150px;
+    height: 15px;
+    text-overflow: ellipsis;
+}
+
+.card:hover .cardName{
+    animation: slide-bottom-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    overflow: hidden;
+    position: absolute;
+    bottom : 0px;
+    z-index: 300;
+    left: 50%;
+    color: transparent; -webkit-text-stroke: 1px gold;
+    filter: opacity(0.8);
+}
+
+.card .cardName{
+    animation: slide-bottom-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    position: absolute;
+    overflow: hidden;
+    bottom : 0px;
+    z-index: 300;
+    left: 50%;
+    color: transparent; -webkit-text-stroke: 1px gold;
+    filter: opacity(0.8);
+}
+
+.card:hover .cardType{
+    animation: slide-top-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    overflow: hidden;
+    position: absolute;
+    top : 0px;
+    z-index: 300;
+    left: 50%;
+    color: transparent; -webkit-text-stroke: 1px gold;
+    filter: opacity(0.8);
+ 
+    
+}
+
+.card .cardType{
+    animation: slide-top-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    position: absolute;
+    overflow: hidden;
+    top : 0px;
+    z-index: 300;
+    left: 50%;
+    color: transparent; -webkit-text-stroke: 1px gold;
+    filter: opacity(0.8);
+    
+}
+
+
+.card:hover .vertical-line-left{
+    animation: vertical-line-left-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-left : thick solid gold;
+    width: 300px; height: 100%;
+    top: 0px;
+    left: 0px;
+    margin-left: 15px;
+    position:absolute;
+    z-index: 300;
+    filter: opacity(0.3);
+}
+
+.card .vertical-line-left{
+    animation: vertical-line-left-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-left : thick solid gold;
+    width: 300px; height: 100%;
+    top: 0px;
+    left: 0px;
+    margin-left: 15px;
+    position:absolute;
+    z-index: 300;
+    filter: opacity(0.3);
+}
+
+.card:hover .vertical-line-right{
+    animation: vertical-line-right-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-right : thick solid gold;
+    width: 300px; height: 100%;
+    top: 0px;
+    right: 0px;
+    margin-right: 15px;
+    z-index: 300;
+    position:absolute;
+    filter: opacity(0.3);
+}
+
+.card .vertical-line-right{
+    animation: vertical-line-right-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-right : thick solid gold;
+    width: 300px; height: 100%;
+    top: 0px;
+    right: 0px;
+    margin-right: 15px;
+    z-index: 300;
+    position:absolute;
+    filter: opacity(0.3);
+}
+
+.card:hover .horizontal-line-top{
+    animation: horizontal-line-top-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick double gold;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: 300;
+    position:absolute;
+    filter: opacity(0.3);
+}
+
+.card .horizontal-line-top{
+    animation: horizontal-line-top-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-top : thick double gold;
+    width: 300px; height: 100%;
+    top: 0px;
+    margin-top: 15px;
+    z-index: 300;
+    position:absolute;
+    filter: opacity(0.3);
+}
+
+.card:hover .horizontal-line-bottom{
+    animation: horizontal-line-bottom-hover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick double gold;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: 300;
+    position:absolute;
+    filter: opacity(0.3);
+}
+
+.card .horizontal-line-bottom{
+    animation: horizontal-line-bottom-unhover 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    border-bottom : thick double gold;
+    width: 300px; height: 100%;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 15px;
+    z-index: 300;
+    position:absolute;
+    filter: opacity(0.3);
+}
+
+
+
+@keyframes slide-right-hover {
+    0% {
+        transform:translate(-100%,-50%);
+    }
+    100% {
+        transform:translate(25%,-50%);
+    }
+}
+
+@keyframes slide-right-unhover {
+    from{
+        transform:translate(25%,-50%);
+    }
+    to {
+        transform:translate(-100%,-50%);
+    }
+}
+
+@keyframes slide-left-hover {
+    0% {
+        transform:translateX(100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes slide-left-unhover {
+    to {
+        transform:translateX(100%);
+    }
+}
+
+@keyframes slide-top-hover {
+    0% {
+        transform:translate(-50%,-200%);
+    }
+    100% {
+        transform:translate(-50%,50%);
+    }
+}
+
+@keyframes slide-top-unhover {
+    from{
+        transform:translate(-50%,50%);
+    }
+    to {
+        transform:translate(-50%,-200%);
+    }
+}
+
+@keyframes slide-bottom-hover {
+    0% {
+        transform:translate(-50%,200%);
+    }
+    100% {
+        transform:translate(-50%,-50%);
+    }
+}
+
+@keyframes slide-bottom-unhover {
+    from{
+        transform:translate(-50%,-50%);
+    }
+    to {
+        transform:translate(-50%,200%);
+    }
+}
+
+@keyframes vertical-line-left-hover {
+    0% {
+        transform:translateX(-100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes vertical-line-left-unhover {
+    to {
+        transform:translateX(-100%);
+    }
+}
+
+@keyframes vertical-line-right-hover {
+    0% {
+        transform:translateX(100%);
+    }
+    100% {
+        transform:translateX(0%);
+    }
+}
+
+@keyframes vertical-line-right-unhover {
+    to {
+        transform:translateX(100%);
+    }
+}
+
+@keyframes horizontal-line-top-hover {
+    0% {
+        transform:translateY(-100%);
+    }
+    100% {
+        transform:translateY(0%);
+    }
+}
+
+@keyframes horizontal-line-top-unhover {
+    to {
+        transform:translateY(-100%);
+    }
+}
+
+@keyframes horizontal-line-bottom-hover {
+    0% {
+        transform:translateY(100%);
+    }
+    100% {
+        transform:translateY(0%);
+    }
+}
+
+@keyframes horizontal-line-bottom-unhover {
+    to {
+        transform:translateY(100%);
+    }
+}
+
