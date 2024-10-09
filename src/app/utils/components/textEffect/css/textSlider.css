@@ -9,6 +9,10 @@
     width: 150px;
     height: 15px;
     text-overflow: ellipsis;
+    background-color:white;
+    color: transparent; -webkit-text-stroke: 1px black;
+    filter: opacity(0.5);
+
 }
 
 .card .cardInfo{
@@ -21,6 +25,9 @@
     width: 150px;
     height: 15px;
     text-overflow: ellipsis;
+    background-color:white;
+    color: transparent; -webkit-text-stroke: 1px black;
+    filter: opacity(0.5);
 }
 
 .card:hover .cardName{

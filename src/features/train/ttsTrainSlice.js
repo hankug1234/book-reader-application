@@ -8,7 +8,7 @@ const initialState = {
     totalEpoch: null,
     image: defaultImage,
     imageName: null,
-    datasetId: "",
+    dataSetId: "",
     language:"",
 }
 
