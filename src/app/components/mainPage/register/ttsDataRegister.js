@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import DatasetUploader from "../../../utils/components/fileUpload/datasetUpload"
+import "../css/regist.css"
 
 const TtsDataRegister = () => {
 
@@ -11,11 +12,16 @@ const TtsDataRegister = () => {
                 <br/>
                 <br/>
                 <br/>
+                <label for="freeform">Description:</label>
+                <br/>
+                <textarea id="freeform" name="freeform" rows="4" cols="25">
+                </textarea>
+                <br/>
+                <br/>
+                <br/>
                 <DatasetUploader name={"DATASET"}/>
                 <br/>
-                <br/>
                 <DatasetUploader name={"CONFIG FILE"}/>
-                <br/>
                 <br/>
                 <DatasetUploader name={"DATASET LIST"}/>
             </form>

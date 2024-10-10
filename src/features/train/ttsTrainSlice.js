@@ -48,7 +48,7 @@ export const trainSlice = createSlice({
         state.totalEpoch = action.payload;
       },
       setDataset: (state,action) => {
-        state.datasetId = action.payload;
+        state.dataSetId = action.payload;
       },
       setLanguage: (state,action) => {
         state.language = action.payload

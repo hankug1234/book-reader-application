@@ -1,0 +1,23 @@
+.InputField-regist {
+    border: 0;
+    padding: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #eee;
+    font: inherit;
+    font-size: 14px;
+    line-height: 30px;
+    color: white;
+    width: 217px;
+    text-overflow:ellipsis;
+    margin-top: 15px;
+  }
+
+textarea{
+
+    width: 217px;
+    resize: none;
+    border:  1px solid #eee;
+    color: white;
+    background-color:#282c34 ;
+}

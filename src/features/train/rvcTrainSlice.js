@@ -47,7 +47,7 @@ export const trainSlice = createSlice({
         state.totalEpoch = action.payload;
       },
       setDataset: (state,action) => {
-        state.datasetId = action.payload;
+        state.dataSetId = action.payload;
       },
       setImageName: (state,action) => {
         state.imageName = action.payload;
