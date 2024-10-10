@@ -47,7 +47,7 @@ const SwiperCards = ({perview,row,space,isCheckable,callback}) => {
               [...Array(16).keys()].map(key =>{
                 return (
                   <SwiperSlide key={key}>
-                    <ResizableCard width={170} height={260} cardClick={(e) => {cardClick(e,key)}}>
+                    <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,key)}}>
                       {
                         isCheckable && clicked.has(key)? <img src={checkImage} alt="check" className="check-image"/> : <></>
                       }
