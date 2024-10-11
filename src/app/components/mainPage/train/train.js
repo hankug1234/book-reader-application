@@ -31,7 +31,7 @@ const Train = ()=>{
         <div className="train">
             <div>
                 <ResizableCard width={300} height={500}>
-                    <img src={path.indexOf("rvc") > 0 ? rvcImage : ttsImage} style={{width:"300px", height:"500px",zIndex:100}} alt="default"/>
+                    <img src={path.indexOf("rvc") >= 0 ? rvcImage : ttsImage} style={{width:"300px", height:"500px",zIndex:100}} alt="default"/>
                     <DefaultEffect name={path.indexOf("rvc") > 0 ? rvcTrain.modelName : ttsTrain.modelName} 
                     type={path.indexOf("rvc") > 0 ? "RVC" : "TTS"} 
                     infos={path.indexOf("rvc") > 0 

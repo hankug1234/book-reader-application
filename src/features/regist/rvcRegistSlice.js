@@ -1,9 +1,7 @@
 import {createSlice } from '@reduxjs/toolkit';
-import defaultImage from "./images/logo.svg"
 
 const initialState = {
-    modelName: "",
-    image: defaultImage,
+    dataSetName: "",
     description: "",
     dataSet: "",
 }
@@ -13,8 +11,8 @@ export const registSlice = createSlice({
     name: 'rvcRegist',
     initialState,
     reducers: {
-      setModelName: (state,action) => {
-        state.modelName = action.payload;
+      setDataSetName: (state,action) => {
+        state.dataSetName = action.payload;
       },
       setDataSet: (state,action) => {
         state.dataSet = action.payload;
@@ -25,5 +23,5 @@ export const registSlice = createSlice({
     },
   });
 
-  export const {setModelName,setDataSet,setDescription}  = registSlice.actions;
+  export const {setDataSetName,setDataSet,setDescription}  = registSlice.actions;
   export default registSlice.reducer;
