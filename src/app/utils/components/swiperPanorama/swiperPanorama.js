@@ -8,9 +8,15 @@ import 'swiper/css/pagination';
 import './css/swiperPanorama.css';
 
 import { EffectCoverflow, Pagination} from 'swiper/modules';
+import { useNavigate } from 'react-router-dom';
 
-const SwiperPanorama = (url) => {
+const SwiperPanorama = ({url}) => {
   
+    const navigate = useNavigate()
+    const cardClick = (e) => {
+      navigate(url)
+    }
+
     return (
       <>
         <MusicNoteCircle/>
@@ -40,7 +46,7 @@ const SwiperPanorama = (url) => {
                 return (
                     <SwiperSlide key={path}>
                       <div className="paranomaCard">
-                        <Card/>
+                        <Card cardClick={cardClick}/>
                       </div>
                     </SwiperSlide>
                 )

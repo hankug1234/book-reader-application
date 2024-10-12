@@ -1,13 +1,12 @@
-import { useForm, SubmitHandler } from "react-hook-form"
-import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/train.css"
 import ResizableCard from "../../../utils/components/resizableCard/resizableCard";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Outlet } from "react-router-dom";
 
-const Register = ()=>{
+const Data = ()=>{
 
     const path = useLocation().pathname
     const rvcRegist = useSelector((state) => state.rvcRegist)
@@ -45,4 +44,4 @@ const Register = ()=>{
     );
 }
 
-export default Register 
+export default Data

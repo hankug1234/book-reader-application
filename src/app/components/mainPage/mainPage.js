@@ -15,6 +15,7 @@ const MainPage = () => {
                 <Link className={ location.indexOf("datas") >= 0 ? "topnav-link-current" : "topnav-link"} to="/datas">DATAS</Link>
                 <Link className={ location.indexOf("train") >= 0 ? "topnav-link-current" : "topnav-link"}  to="/rvc-train">TRAIN</Link>
                 <Link className={ location.indexOf("data-register") >= 0 ? "topnav-link-current" : "topnav-link"}  to="/rvc-data-register">REGIST</Link>
+                <Link className={"topnav-link logOut"}  to="/">LOG OUT</Link>
             </div>
         </div>
         <div className="main-body">
