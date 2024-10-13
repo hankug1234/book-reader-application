@@ -3,7 +3,7 @@ import CardSelectionPage from "../../../utils/components/cardSelection/cardSelec
 import { Link } from "react-router-dom"
 import { Outlet } from "react-router-dom"
 import { useOutletContext } from "react-router-dom"
-import { useParams } from "react-router-dom"
+
 import { useLocation } from "react-router-dom"
 
 const ModelInfoForm = () => {
