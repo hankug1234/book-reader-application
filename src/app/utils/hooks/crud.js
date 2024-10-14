@@ -39,7 +39,7 @@ const useInsert = (relatedQueryKeys) => {
 
 }
 
-const useSelect = (url, queryKey) => {
+const useSelect = (queryKey) => {
     return useQuery(queryKey,fetchGet)
 }
 
