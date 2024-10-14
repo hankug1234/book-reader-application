@@ -1,4 +1,5 @@
 import SwiperCards from "../../../utils/components/swiperCards/swiperCards";
+import { useQuery } from "react-query";
 
 const DataList = ()=>{
     return (
