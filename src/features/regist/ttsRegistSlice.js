@@ -1,10 +1,10 @@
 import {createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    dataSetName: "",
+    data_set_name: "",
     description: "",
-    dataSet: null,
-    fileList: null,
+    data_set: null,
+    file_list: null,
     config: null,
 }
 
@@ -14,13 +14,13 @@ export const registSlice = createSlice({
     initialState,
     reducers: {
       setDataSetName: (state,action) => {
-        state.dataSetName = action.payload;
+        state.data_set_name = action.payload;
       },
       setDataSet: (state,action) => {
-        state.dataSet = action.payload;
+        state.data_set = action.payload;
       },
       setFileList: (state,action) => {
-        state.fileList = action.payload;
+        state.file_list = action.payload;
       },
       setConfig: (state,action) => {
         state.config = action.payload;

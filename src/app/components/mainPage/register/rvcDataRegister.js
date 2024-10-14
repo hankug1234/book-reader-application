@@ -3,17 +3,23 @@ import DatasetUploader from "../../../utils/components/fileUpload/datasetUpload"
 import "../css/regist.css"
 import { useDispatch, useSelector } from "react-redux"
 import {setDataSetName,setDataSet,setDescription}  from '../../../../features/regist/rvcRegistSlice';
+import RequestUploader from "../../../utils/components/fileUpload/requestUpload";
+import { useInsert } from "../../../utils/hooks/crud";
 
 const RvcDataRegister = () => {
 
-    const {register} = useForm()
+    const {register, handleSubmit} = useForm()
     const rvcRegister = useSelector((state)=>state.rvcRegist)
     const dispatch = useDispatch()
     const dataSetUpload = (file)=>{dispatch(setDataSet(file))}
+    const {mutate: post} = useInsert([])
+    const submit = (_) => {
+        post("http://127.0.0.1:8000/regist/rvc_data",rvcRegister)
+    }
 
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit(submit)}>
                 <br/>
                 <input {...register("modelDataSet", { required: true })} 
                 placeholder='RVC dataset name' className="InputField-regist"
@@ -35,6 +41,9 @@ const RvcDataRegister = () => {
                 <br/>
                 <br/>
                 <DatasetUploader name={"DATASET"} upload={dataSetUpload}/>
+                <br/>
+                <br/>
+                <RequestUploader/>
             </form>
         </>
     )

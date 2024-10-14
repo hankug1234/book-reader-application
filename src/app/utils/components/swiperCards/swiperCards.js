@@ -12,7 +12,7 @@ import checkImage from './images/check.png'
 import { useState } from "react";
 
 
-const SwiperCards = ({perview,row,space,isCheckable,callback}) => {
+const SwiperCards = ({perview,row,space,isCheckable,callback,datas}) => {
 
     const [clicked, setClicked] = useState(new Set([]))
 
@@ -44,12 +44,15 @@ const SwiperCards = ({perview,row,space,isCheckable,callback}) => {
             className="mySwiper"
           >
             {
-              [...Array(16).keys()].map(key =>{
+              datas.map((data,key) =>{
                 return (
                   <SwiperSlide key={key}>
                     <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,key)}}>
                       {
                         isCheckable && clicked.has(key)? <img src={checkImage} alt="check" className="check-image"/> : <></>
+                      }
+                      {
+                        data
                       }
                     </ResizableCard>
                   </SwiperSlide>

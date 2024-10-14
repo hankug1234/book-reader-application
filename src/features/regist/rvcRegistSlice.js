@@ -1,9 +1,9 @@
 import {createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    dataSetName: "",
+    data_set_name: "",
     description: "",
-    dataSet: "",
+    data_set: "",
 }
 
 
@@ -12,10 +12,10 @@ export const registSlice = createSlice({
     initialState,
     reducers: {
       setDataSetName: (state,action) => {
-        state.dataSetName = action.payload;
+        state.data_set_name = action.payload;
       },
       setDataSet: (state,action) => {
-        state.dataSet = action.payload;
+        state.data_set = action.payload;
       },
       setDescription: (state,action) => {
         state.description = action.payload;
