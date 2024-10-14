@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react"
 import "./css/fileUpload.css"
 
-const DatasetUploader = ({name}) => {
+const DatasetUploader = ({name,upload=()=>false}) => {
 
     const inputEl = useRef(null);
     const [fileName, setFileName] = useState(null);
@@ -10,6 +10,7 @@ const DatasetUploader = ({name}) => {
       const files = event.target && event.target.files;
       if (files && files[0]) {
         setFileName(event.target.files[0].name);
+        upload(files[0].name)
       }
     }, []);
   

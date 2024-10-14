@@ -9,6 +9,7 @@ const RvcDataRegister = () => {
     const {register} = useForm()
     const rvcRegister = useSelector((state)=>state.rvcRegist)
     const dispatch = useDispatch()
+    const dataSetUpload = (file)=>{dispatch(setDataSet(file))}
 
     return (
         <>
@@ -33,7 +34,7 @@ const RvcDataRegister = () => {
                 <br/>
                 <br/>
                 <br/>
-                <DatasetUploader name={"DATASET"}/>
+                <DatasetUploader name={"DATASET"} upload={dataSetUpload}/>
             </form>
         </>
     )

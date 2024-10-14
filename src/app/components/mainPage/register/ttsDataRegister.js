@@ -9,6 +9,9 @@ const TtsDataRegister = () => {
     const {register} = useForm()
     const ttsRegister = useSelector((state)=>state.ttsRegist)
     const dispatch = useDispatch()
+    const dataSetUpload = (file)=>{dispatch(setDataSet(file))}
+    const configUpload = (file)=>{dispatch(setConfig(file))}
+    const fileListUpload = (file)=>{dispatch(setFileList(file))}
 
     return (
         <>
@@ -33,11 +36,11 @@ const TtsDataRegister = () => {
                 <br/>
                 <br/>
                 <br/>
-                <DatasetUploader name={"DATASET"}/>
+                <DatasetUploader name={"DATASET"} upload={dataSetUpload}/>
                 <br/>
-                <DatasetUploader name={"CONFIG FILE"}/>
+                <DatasetUploader name={"CONFIG FILE"} upload={configUpload}/>
                 <br/>
-                <DatasetUploader name={"DATASET LIST"}/>
+                <DatasetUploader name={"DATASET LIST"} upload={fileListUpload}/>
             </form>
         </>
     )
