@@ -14,14 +14,14 @@ const RvcDataRegister = () => {
     const dataSetUpload = (file)=>{dispatch(setDataSet(file))}
     const {mutate: post} = useInsert([])
     const submit = (_) => {
-        post("http://127.0.0.1:8000/regist/rvc_data",rvcRegister)
+        post({url:"http://127.0.0.1:8000/regist/rvc_data", data:JSON.stringify(rvcRegister)})
     }
 
     return (
         <>
             <form onSubmit={handleSubmit(submit)}>
                 <br/>
-                <input {...register("modelDataSet", { required: true })} 
+                <input {...register("modelDataSet", { required: {value: true, message: "dataset name must be registed"} })} 
                 placeholder='RVC dataset name' className="InputField-regist"
                 value={rvcRegister.dataSetName}
                 onChange={(e)=>dispatch(setDataSetName(e.target.value))}
