@@ -5,14 +5,30 @@ import { useDispatch, useSelector } from "react-redux"
 import {setDataSetName,setDataSet,setDescription}  from '../../../../features/regist/rvcRegistSlice';
 import RequestUploader from "../../../utils/components/fileUpload/requestUpload";
 import { useInsert } from "../../../utils/hooks/crud";
+import { setDataset } from "../../../../features/train/ttsTrainSlice";
+import { useEffect } from "react";
 
 const RvcDataRegister = () => {
 
     const {register, handleSubmit} = useForm()
     const rvcRegister = useSelector((state)=>state.rvcRegist)
     const dispatch = useDispatch()
+
     const dataSetUpload = (file)=>{dispatch(setDataSet(file))}
-    const {mutate: post} = useInsert([])
+    const {mutate: post,isSuccess: success, isLoading:loading} = useInsert([])
+
+    const rvcRegistClear = ()=> {
+        dispatch(setDataSetName(""))
+        dispatch(setDataset(""))
+        dispatch(setDescription(""))
+    }
+
+    useEffect(()=>{
+        if(success){
+            rvcRegistClear()
+        }
+    },[success])
+
     const submit = (_) => {
         post({url:"http://127.0.0.1:8000/regist/rvc_data", data:JSON.stringify(rvcRegister)})
     }
@@ -43,7 +59,9 @@ const RvcDataRegister = () => {
                 <DatasetUploader name={"DATASET"} upload={dataSetUpload}/>
                 <br/>
                 <br/>
-                <RequestUploader/>
+                {
+                    loading?"loading":<RequestUploader/>
+                }
             </form>
         </>
     )
