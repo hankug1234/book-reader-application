@@ -20,24 +20,24 @@ const TtsTrain = () => {
                 <br/>
                 <input {...register("modelName", { required: true })}
                  onChange={(e)=>dispatch(setModelName(e.target.value))}
-                 placeholder='TTS model name' className="InputField-train" value={ttsTrainState.modelName}/>
+                 placeholder='TTS model name' className="InputField-train" value={ttsTrainState.model_name}/>
                 <br/>
                 <input {...register("batchSize", { required: true })}
                 onChange={(e)=>dispatch(setBatchSize(e.target.value))} 
-                placeholder='Batch size' className="InputField-train" value={ttsTrainState.batchSize}/>
+                placeholder='Batch size' className="InputField-train" value={ttsTrainState.batch_size}/>
                 <br/>
                 <input {...register("saveEpoch", { required: true, valueAsNumber: true})}
                 onChange={(e)=>dispatch(setSaveEpoch(e.target.value))} 
-                placeholder='Save epoch' className="InputField-train" value={ttsTrainState.saveEpoch}/>
+                placeholder='Save epoch' className="InputField-train" value={ttsTrainState.save_epoch}/>
                 <br/>
                 <input {...register("totalEpoch", { required: true,  valueAsNumber: true})}
                 onChange={(e)=>dispatch(setTotalEpoch(e.target.value))} 
-                placeholder='Total epoch' className="InputField-train" value={ttsTrainState.totalEpoch}/>
+                placeholder='Total epoch' className="InputField-train" value={ttsTrainState.total_epoch}/>
                 <br/>
                 <br/>
                 <RadioButtons label={"Language"} tags={['EN','JP','KR']} checked={(lang) => dispatch(setLanguage(lang))}/>
                 <br/>
-                <FileUploader setBase64={(file)=>dispatch(setTtsImageAsync(file))} setFileName={(imgName)=>dispatch(setImageName(imgName))} fileName={ttsTrainState.imageName}/>
+                <FileUploader setBase64={(file)=>dispatch(setTtsImageAsync(file))} setFileName={(imgName)=>dispatch(setImageName(imgName))} fileName={ttsTrainState.image_name}/>
                 <br/>
                 <button className="selection-button" onClick={onclick}>
                     {

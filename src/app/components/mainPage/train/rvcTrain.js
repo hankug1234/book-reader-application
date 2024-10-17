@@ -19,22 +19,22 @@ const RvcTrain = () => {
                 <br/>
                 <input {...register("modelName", { required: true })}
                  onChange={(e)=>dispatch(setModelName(e.target.value))}
-                 placeholder='RVC model name' className="InputField-train" value={rvcTrainState.modelName}/>
+                 placeholder='RVC model name' className="InputField-train" value={rvcTrainState.model_name}/>
                 <br/>
                 <input {...register("batchSize", { required: true })}
                 onChange={(e)=>dispatch(setBatchSize(e.target.value))} 
-                placeholder='Batch size' className="InputField-train" value={rvcTrainState.batchSize}/>
+                placeholder='Batch size' className="InputField-train" value={rvcTrainState.batch_size}/>
                 <br/>
                 <input {...register("saveEpoch", { required: true, valueAsNumber: true})}
                 onChange={(e)=>dispatch(setSaveEpoch(e.target.value))} 
-                placeholder='Save epoch' className="InputField-train" value={rvcTrainState.saveEpoch}/>
+                placeholder='Save epoch' className="InputField-train" value={rvcTrainState.save_epoch}/>
                 <br/>
                 <input {...register("totalEpoch", { required: true,  valueAsNumber: true})}
                 onChange={(e)=>dispatch(setTotalEpoch(e.target.value))} 
-                placeholder='Total epoch' className="InputField-train" value={rvcTrainState.totalEpoch}/>
+                placeholder='Total epoch' className="InputField-train" value={rvcTrainState.total_epoch}/>
                 <br/>
                 <br/>
-                <FileUploader setBase64={(file) => dispatch(setRvcImageAsync(file))} setFileName={(imgName)=>dispatch(setImageName(imgName))} fileName={rvcTrainState.imageName}/>
+                <FileUploader setBase64={(file) => dispatch(setRvcImageAsync(file))} setFileName={(imgName)=>dispatch(setImageName(imgName))} fileName={rvcTrainState.image_name}/>
                 <br/>
                 <button className="selection-button" onClick={onclick}>
                     {

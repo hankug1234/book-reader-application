@@ -2,13 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import defaultImage from "./images/logo.svg"
 
 const initialState = {
-    modelName: "",
-    batchSize: null,
-    saveEpoch: null,
-    totalEpoch: null,
+    model_name: "",
+    batch_size: null,
+    save_epoch: null,
+    total_epoch: null,
     image: defaultImage,
-    imageName: null,
-    dataSetId: "",
+    image_name: null,
+    data_set_id: "",
     language:"",
 }
 
@@ -36,25 +36,25 @@ export const trainSlice = createSlice({
     initialState,
     reducers: {
       setModelName: (state,action) => {
-        state.modelName = action.payload;
+        state.model_name = action.payload;
       },
       setBatchSize: (state, action) => {
-        state.batchSize = action.payload;
+        state.batch_size = action.payload;
       },
       setSaveEpoch: (state,action) => {
-        state.saveEpoch = action.payload;
+        state.save_epoch = action.payload;
       },
       setTotalEpoch: (state,action) => {
-        state.totalEpoch = action.payload;
+        state.total_epoch = action.payload;
       },
       setDataset: (state,action) => {
-        state.dataSetId = action.payload;
+        state.data_set_id = action.payload;
       },
       setLanguage: (state,action) => {
         state.language = action.payload
       },
       setImageName: (state,action) => {
-        state.imageName = action.payload
+        state.image_name = action.payload
       }
     },
     extraReducers: (builder) => {

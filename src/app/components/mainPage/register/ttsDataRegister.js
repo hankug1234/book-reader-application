@@ -19,7 +19,7 @@ const TtsDataRegister = () => {
                 <br/>
                 <input
                 {...register("modelDataSet", { required: true })}
-                value={ttsRegister.dataSetName}
+                value={ttsRegister.data_set_name}
                 onChange={(e)=>dispatch(setDataSetName(e.target.value))}  
                 placeholder='TTS dataset name' className="InputField-regist"/>
                 <br/>

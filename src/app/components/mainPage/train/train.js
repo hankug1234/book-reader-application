@@ -32,7 +32,7 @@ const Train = ()=>{
             <div>
                 <ResizableCard width={300} height={500}>
                     <img src={path.indexOf("rvc") >= 0 ? rvcImage : ttsImage} style={{width:"300px", height:"500px",zIndex:100}} alt="default"/>
-                    <DefaultEffect name={path.indexOf("rvc") > 0 ? rvcTrain.modelName : ttsTrain.modelName} 
+                    <DefaultEffect name={path.indexOf("rvc") > 0 ? rvcTrain.model_name : ttsTrain.model_name} 
                     type={path.indexOf("rvc") > 0 ? "RVC" : "TTS"} 
                     infos={path.indexOf("rvc") > 0 
                     ? Object.entries(rvcTrain).map((items)=>`${items[0]} : ${items[1]}`).filter((s)=>infoFilter(s)===true)

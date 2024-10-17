@@ -39,7 +39,7 @@ const RvcDataRegister = () => {
                 <br/>
                 <input {...register("modelDataSet", { required: {value: true, message: "dataset name must be registed"} })} 
                 placeholder='RVC dataset name' className="InputField-regist"
-                value={rvcRegister.dataSetName}
+                value={rvcRegister.data_set_name}
                 onChange={(e)=>dispatch(setDataSetName(e.target.value))}
                 />
                 <br/>
