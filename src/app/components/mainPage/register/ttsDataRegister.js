@@ -3,19 +3,39 @@ import DatasetUploader from "../../../utils/components/fileUpload/datasetUpload"
 import "../css/regist.css"
 import { useDispatch,useSelector } from "react-redux"
 import {setDataSetName,setDataSet,setDescription,setConfig,setFileList} from '../../../../features/regist/ttsRegistSlice'
+import { useInsert } from "../../../utils/hooks/crud"
+import { useEffect } from "react"
+import RequestUploader from "../../../utils/components/fileUpload/requestUpload"
 
 const TtsDataRegister = () => {
 
-    const {register} = useForm()
+    const {register, handleSubmit} = useForm()
     const ttsRegister = useSelector((state)=>state.ttsRegist)
     const dispatch = useDispatch()
-    const dataSetUpload = (file)=>{dispatch(setDataSet(file))}
-    const configUpload = (file)=>{dispatch(setConfig(file))}
-    const fileListUpload = (file)=>{dispatch(setFileList(file))}
+
+    const {mutate: post,isSuccess: success, isLoading:loading} = useInsert([])
+
+    const submit = (_) => {
+        post({url:"http://127.0.0.1:8000/regist/tts_data", data:JSON.stringify(ttsRegister)})
+    }
+
+    const ttsRegistClear = () => {
+        dispatch(setDataSet(null))
+        dispatch(setConfig(null))
+        dispatch(setFileList(null))
+        dispatch(setDataSetName(""))
+        dispatch(setDescription(""))
+    }
+
+    useEffect(()=>{
+        if(success){
+            ttsRegistClear()
+        }
+    },[success])
 
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit(submit)}>
                 <br/>
                 <input
                 {...register("modelDataSet", { required: true })}
@@ -36,11 +56,15 @@ const TtsDataRegister = () => {
                 <br/>
                 <br/>
                 <br/>
-                <DatasetUploader name={"DATASET"} upload={dataSetUpload}/>
+                <DatasetUploader name={"DATASET"} upload={(dataSet)=>dispatch(setDataSet(dataSet))}/>
                 <br/>
-                <DatasetUploader name={"CONFIG FILE"} upload={configUpload}/>
+                <DatasetUploader name={"CONFIG FILE"} upload={(config)=>dispatch(setConfig(config))}/>
                 <br/>
-                <DatasetUploader name={"DATASET LIST"} upload={fileListUpload}/>
+                <DatasetUploader name={"FILE LIST"} upload={(fileList)=>dispatch(setFileList(fileList))}/>
+                <br/>
+                {
+                    loading?"loading":<RequestUploader/>
+                }
             </form>
         </>
     )

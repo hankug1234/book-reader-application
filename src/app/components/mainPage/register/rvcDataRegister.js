@@ -19,7 +19,7 @@ const RvcDataRegister = () => {
 
     const rvcRegistClear = ()=> {
         dispatch(setDataSetName(""))
-        dispatch(setDataset(""))
+        dispatch(setDataset(null))
         dispatch(setDescription(""))
     }
 

@@ -3,7 +3,7 @@ import {createSlice } from '@reduxjs/toolkit';
 const initialState = {
     data_set_name: "",
     description: "",
-    data_set: "",
+    data_set: null,
 }
 
 

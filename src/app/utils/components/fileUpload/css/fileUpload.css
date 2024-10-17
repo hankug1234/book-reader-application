@@ -32,7 +32,7 @@
     text-overflow:ellipsis;
 }
 
-#file{
+.file{
     display: none;
 }
 

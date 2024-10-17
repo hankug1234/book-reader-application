@@ -9,6 +9,6 @@ export const store = configureStore({
     rvcTrain: rvcTrainReducer,
     ttsTrain: ttsTrainReducer,
     rvcRegist: rvcRegistReducer,
-    ttsRegist: ttsRegistReducer
+    ttsRegist: ttsRegistReducer,
   },
 });

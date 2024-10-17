@@ -1,5 +1,6 @@
-import {useEffect, useCallback, useRef } from "react"
+import {useState,useEffect, useCallback, useRef } from "react"
 import "./css/fileUpload.css"
+import { v4 as uuidv4 } from "uuid"; 
 
 const FileUploader = ({setBase64,fileName,setFileName}) => {
 
@@ -30,17 +31,19 @@ const FileUploader = ({setBase64,fileName,setFileName}) => {
       };
     }, [inputEl, fileInputHandler]);
 
+    const [id,setId] = useState(uuidv4())
+
     return (
         <>
             <div>
-                <label for="file">
+                <label for={id}>
                     <div className="file-upload">
                         {
                             fileName? fileName : "IMAGE UPLOAD "
                         }
                     </div>
                 </label>
-                <input type="file" ref={inputEl} id="file"/>
+                <input className={"file"} type="file" ref={inputEl} id={id}/>
             </div>
         </>
     )
