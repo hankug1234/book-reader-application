@@ -11,12 +11,13 @@ const TtsDataRegister = () => {
 
     const {register, handleSubmit} = useForm()
     const ttsRegister = useSelector((state)=>state.ttsRegist)
+    const url = useSelector((state)=>state.urls.regist_tts_data)
     const dispatch = useDispatch()
 
     const {mutate: post,isSuccess: success, isLoading:loading} = useInsert([])
 
     const submit = (_) => {
-        post({url:"http://127.0.0.1:8000/regist/tts_data", data:JSON.stringify(ttsRegister)})
+        post({url:url, data:JSON.stringify(ttsRegister)})
     }
 
     const ttsRegistClear = () => {

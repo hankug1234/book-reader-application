@@ -29,7 +29,7 @@ const Data = ()=>{
                     }
                     <label for={"dataDescription"} className={"descriptionLabel"}>{"description:"}</label>
                     <div id={"dataDescription"} className={"dataDescription"}>{path.indexOf("rvc") >= 0 ? rvcRegist.description : ttsRegist.description}</div>
-                    <h1 className={"dataName"}>{path.indexOf("rvc") >= 0 ? rvcRegist.dataSetName : ttsRegist.dataSetName}</h1>
+                    <h1 className={"dataName"}>{path.indexOf("rvc") >= 0 ? rvcRegist.data_set_name : ttsRegist.data_set_name}</h1>
                     <div style={{width: "300px",height: "500px", backgroundColor: "black", position:"absolute", top:"0%" }}/>
                 </ResizableCard>
             </div>

@@ -12,9 +12,9 @@ const RvcDataRegister = () => {
 
     const {register, handleSubmit} = useForm()
     const rvcRegister = useSelector((state)=>state.rvcRegist)
+    const url = useSelector((state)=>state.urls.regist_rvc_data)
     const dispatch = useDispatch()
 
-    const dataSetUpload = (file)=>{dispatch(setDataSet(file))}
     const {mutate: post,isSuccess: success, isLoading:loading} = useInsert([])
 
     const rvcRegistClear = ()=> {
@@ -30,7 +30,7 @@ const RvcDataRegister = () => {
     },[success])
 
     const submit = (_) => {
-        post({url:"http://127.0.0.1:8000/regist/rvc_data", data:JSON.stringify(rvcRegister)})
+        post({url:url, data:JSON.stringify(rvcRegister)})
     }
 
     return (
@@ -56,7 +56,7 @@ const RvcDataRegister = () => {
                 <br/>
                 <br/>
                 <br/>
-                <DatasetUploader name={"DATASET"} upload={dataSetUpload}/>
+                <DatasetUploader name={"DATASET"} upload={(file)=>dispatch(setDataSet(file))}/>
                 <br/>
                 <br/>
                 {

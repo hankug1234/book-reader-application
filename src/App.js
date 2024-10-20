@@ -2,7 +2,6 @@ import React from 'react';
 import LoginPage from './app/components/loginPage/loginPage';
 import MainPage from './app/components/mainPage/mainPage';
 import { Route,Routes} from 'react-router-dom';
-import DataList from './app/components/mainPage/data/dataList';
 import Train from './app/components/mainPage/train/train';
 import ModelList from './app/components/mainPage/models/modelList';
 import TtsTrain from './app/components/mainPage/train/ttsTrain';
@@ -21,6 +20,8 @@ import ModelInfoForm from './app/components/mainPage/models/modelInfoForm';
 import Data from './app/components/mainPage/data/data';
 import DataInfoRvc from './app/components/mainPage/data/dataInfoRvc';
 import DataInfoTts from './app/components/mainPage/data/dataInfoTts';
+import Datas from './app/components/mainPage/data/datas';
+import {RvcDataList, TtsDataList} from './app/components/mainPage/data/dataList';
 
 function App() {
   return (
@@ -49,7 +50,11 @@ function App() {
           </Route>
         </Route>
 
-        <Route path= "/datas" element={<DataList/>}/>
+        <Route element={<Datas/>}>
+          <Route path="/datas/tts" element={<TtsDataList/>}/>
+          <Route path="/datas/rvc" element={<RvcDataList/>}/>
+        </Route>
+
         <Route element={<Data/>}>
           <Route path="/data-info/rvc" element={<DataInfoRvc/>}/>
           <Route path="/data-info/tts" element={<DataInfoTts/>}/>
