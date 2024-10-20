@@ -14,7 +14,7 @@
     color: white;
     align-content: center;
     margin: 0;
-    height: 100vh;
+    height: 150vh;
     width: 100vw;
     overflow: hidden;
   }
@@ -55,5 +55,4 @@
 
   .dataTypeSelect{
     background-color: transparent;
-    align-items: left;
   }

@@ -6,6 +6,10 @@
     margin-right: auto;
     overflow: hidden;
   }
+
+  .swiperCards{
+    height: 125vh;
+  }
   
   .swiper-slide {
     text-align: center;

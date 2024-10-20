@@ -7,7 +7,7 @@ const Datas = ()=>{
     const path = useLocation().pathname
 
     return(
-        <div>
+        <div className="cardContainer">
             <div className={"dataTypeSelect"}>
                 <Link className={ path.indexOf("rvc") >= 0 ? "topnav-link-current" : "topnav-link"} to="/datas/rvc">RVC</Link>
                 <Link className={ path.indexOf("tts") >= 0 ? "topnav-link-current" : "topnav-link"} to="/datas/tts">TTS</Link>

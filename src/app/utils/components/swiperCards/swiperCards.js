@@ -42,7 +42,7 @@ const SwiperCards = ({perview,row,space,isCheckable,callback,datas,onSlideChange
               clickable: true,
             }}
             modules={[Grid, Pagination]}
-            className="mySwiper"
+            className="mySwiper swiperCards"
           >
             {
               datas?.map((data,key) =>{
