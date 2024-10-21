@@ -31,3 +31,19 @@
 .swiper-slide .swiper-slide-active {
     width: 170px; height: 260px;
 }
+
+.table {
+  display: flex;
+  flex-direction: column; /* 행을 세로로 배치 */
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  flex: 1;
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+}

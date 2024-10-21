@@ -11,10 +11,8 @@ import checkImage from './images/check.png'
 
 import { useState } from "react";
 
-
-const SwiperCards = ({perview,row,space,isCheckable,callback,datas,onSlideChange}) => {
-
-    const [clicked, setClicked] = useState(new Set([]))
+const CardTable = ({row,column,isCheckable,callback,datas})=>{
+  const [clicked, setClicked] = useState(new Set([]))
 
     const cardClick = (e,key) => {
       setClicked((s)=>{
@@ -29,33 +27,54 @@ const SwiperCards = ({perview,row,space,isCheckable,callback,datas,onSlideChange
       callback ? callback() : (()=>false)()
     }
 
+  return (
+    <div className={"table"}>
+      {
+        [...Array(row)].map((_,i)=> {
+          return (
+            <div key={i} className={"row"}>
+              {
+                [...Array(column)].map((_,j) => {
+                    return (
+                      <div key={j} className={"cell"}>
+                         <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,(i*column + j))}}>
+                            {
+                              isCheckable && clicked.has((i*column + j))? <img src={checkImage} alt="check" className="check-image"/> : <></>
+                            }
+                            {
+                              `${(i*column + j)}`
+                            }
+                        </ResizableCard>
+                      </div>
+                    )
+                })
+              }
+            </div>
+          )
+        } )
+      }
+    </div>
+  )
+}
+
+
+const SwiperCards = ({row=2,column=5, isCheckable,slids, callback = () => {}, onSlideChange = () => {}}) => {
+
     return (
         <>
           <Swiper
-            slidesPerView={perview}
             onSlideChange={onSlideChange}
-            grid={{
-              rows: row,
-            }}
-            spaceBetween={space}
             pagination={{
               clickable: true,
             }}
-            modules={[Grid, Pagination]}
+            modules={[Pagination]}
             className="mySwiper swiperCards"
           >
             {
-              datas?.map((data,key) =>{
+              slids?.map((slid,key) =>{
                 return (
                   <SwiperSlide key={key}>
-                    <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,key)}}>
-                      {
-                        isCheckable && clicked.has(key)? <img src={checkImage} alt="check" className="check-image"/> : <></>
-                      }
-                      {
-                        `${data}`
-                      }
-                    </ResizableCard>
+                    <CardTable isCheckable={isCheckable} datas={slid} row={row} column={column} callback={callback}/>
                   </SwiperSlide>
                 )
               })
