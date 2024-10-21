@@ -23,8 +23,9 @@
     align-items: center;
   }
 
-  .swiper-wrapper{
+  .swiperCards > .swiper-wrapper{
     width: 300px !important;
+    height: 250vh !important;
   }
   
 

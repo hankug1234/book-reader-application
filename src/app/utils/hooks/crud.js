@@ -35,7 +35,7 @@ const useDatasPageSelect = (queryKey,url,start,end) =>{
 
     return useQuery(queryKey,select,{
         onSuccess: (data) => {
-
+            /*
             let oldDataSetIds = queryClient.getQueryData(queryKey)?.data?.map(x=>x["data_set_id"])
             let newDataSetIds = data?.data?.filter(x=>!oldDataSetIds?.includes(x["data_set_id"]))
 
@@ -44,6 +44,7 @@ const useDatasPageSelect = (queryKey,url,start,end) =>{
                     return {...oldProductData, data: [...oldProductData?.data, data?.data]}
                     })  
             }
+        */
         },
         onError: (_error, _product, context) => {
           alert(_error)
