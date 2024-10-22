@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Pagination } from 'swiper/modules';
+import {Pagination,Navigation} from 'swiper/modules';
 
 import 'swiper/css'
 import 'swiper/css/grid';
@@ -9,12 +9,11 @@ import './css/swiperCards.css';
 import ResizableCard from "../resizableCard/resizableCard";
 import checkImage from './images/check.png'
 
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { useDatasPageSelect } from "../../hooks/crud";
 
-const CardTable = ({row,column,isCheckable,callback,datas,slidIndex})=>{
+const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex})=>{
   const [clicked, setClicked] = useState(new Set([]))
-
     const cardClick = (e,key) => {
       setClicked((s)=>{
         var ns = new Set([...s])
@@ -31,19 +30,21 @@ const CardTable = ({row,column,isCheckable,callback,datas,slidIndex})=>{
   return (
     <div className={"table"}>
       {
-        [...Array(row)].map((_,i)=> {
+        [...Array(row)]?.map((e1,i)=> {
           return (
             <div key={i} className={"row"}>
               {
-                [...Array(column)].map((_,j) => {
+                [...Array(column)]?.map((e2,j) => {
                     return (
                       <div key={j} className={"cell"}>
-                         <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,(i*column + j))}}>
+                        <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,slidIndex*row*column + (i*column + j))}}>
                             {
-                              isCheckable && clicked.has((i*column + j))? <img src={checkImage} alt="check" className="check-image"/> : <></>
+                              isCheckable && clicked?.has((i*column + j)) ? <img src={checkImage} alt="check" className="check-image"/> : <></>
                             }
                             {
-                              `${datas[(i*column +j)]}`
+                              datas[0] === "loading"
+                              ? "loading"
+                              :`${datas[(i*column + j)]?.data_set_id}`
                             }
                         </ResizableCard>
                       </div>
@@ -59,46 +60,62 @@ const CardTable = ({row,column,isCheckable,callback,datas,slidIndex})=>{
 }
 
 
-const SwiperCards = ({row=2,column=5, isCheckable, dataUrl, callback = () => {}}) => {
+const SwiperCards = ({row,column, isCheckable=false, dataUrl, callback = () => {return false}}) => {
 
-    const [pageRange, setPageRange] = useState([[0,row*column]])
-  
+    const [pageRange, setPageRange] = useState([0,row*column])
     const [lastIndex,setLastIndex] = useState(0)
-    const {data,isLoading} = useDatasPageSelect([dataUrl+pageRange[pageRange.length-1][0]+"_"+pageRange[pageRange.length-1][1]]
-      ,dataUrl,pageRange[pageRange.length-1][0],pageRange[pageRange.length-1][1])
-    const [slids,setSlids] = useState([])
+    const [currentIndex,setCurrentIndex] = useState(0)
+    const [swiperInstance, setSwiperInstance] = useState(null);
 
-    useEffect(()=>{
-      if(data?.data?.length > 0 && isLoading === false){
-          setSlids( (oldState)=>{return [...oldState,data]} )
+    useEffect(() => {
+      if (swiperInstance) {
+        swiperInstance.update();
       }
-    },[data])
+    },[swiperInstance]);
 
-    const loadMoreSlides  = () => {
-        if(slids && slids[slids.length-1]?.data?.length > 0){
-            const index = lastIndex+1
-            const start = index*row*column;
-            const end = start + row*column - 1
-            setPageRange(oldState => [...oldState,[start,end]])
-            setLastIndex(index)
-        }
+
+    const loadSuccess = (newDatas) => {
+      if(newDatas?.data?.length == row*column && currentIndex === lastIndex){
+          setLastIndex(oldState => oldState + 1)
+      }
+      console.log(`reach end index : ${lastIndex}`)
+    }
+
+    const {data:datas,isLoading} = useDatasPageSelect([dataUrl+pageRange[0]+"_"+pageRange[1]]
+    ,dataUrl,pageRange[0],pageRange[1],loadSuccess)
+
+    const loadCurrentSlides  = (swiper) => {
+
+          const index = swiper.activeIndex
+          const start = index*row*column
+          const end = start + row*column
+          setPageRange([start, end])
+          setCurrentIndex(index)
     }
 
     return (
         <>
           <Swiper
-            onReachEnd={loadMoreSlides}
+            resistance={true}
+            navigation={true}
+            onActiveIndexChange={loadCurrentSlides}
             pagination={{
               clickable: true,
             }}
-            modules={[Pagination]}
+            slidesPerView={1}
+            modules={[Pagination,Navigation]}
+            watchOverflow={false}
+            loop={false}
+            observer={true}
+            observeParents={true}
+            onSwiper={setSwiperInstance}
             className="mySwiper swiperCards"
           >
             {
-              slids?.map((slid,key) =>{
+              [...Array(lastIndex+1)]?.map((_,key) =>{
                 return (
                   <SwiperSlide key={key}>
-                    <CardTable isCheckable={isCheckable} datas={slid.data} row={row} column={column} callback={callback} slidIndex={key}/>
+                    <CardTable isCheckable={isCheckable} datas={isLoading ? ["loading"] : datas.data} row={row} column={column} callback={callback} slidIndex={key}/>
                   </SwiperSlide>
                 )
               })

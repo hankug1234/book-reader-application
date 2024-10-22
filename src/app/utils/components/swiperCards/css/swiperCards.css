@@ -24,13 +24,13 @@
   }
 
   .swiperCards > .swiper-wrapper{
-    width: 300px !important;
+    width: fit-content !important;
     height: 250vh !important;
   }
   
 
-.swiper-slide .swiper-slide-active {
-    width: 170px; height: 260px;
+.swiperCards > .swiper-slide .swiper-slide-active {
+    width: fit-content; height: fit-content;
 }
 
 .table {

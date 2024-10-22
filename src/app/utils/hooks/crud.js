@@ -26,15 +26,15 @@ const useInsert = (relatedQueryKeys) => {
     )
 
 }
-
-const useDatasPageSelect = (queryKey,url,start,end) =>{
-    const queryClient = useQueryClient() 
+const defaultCallBack = (d)=>{}
+const useDatasPageSelect = (queryKey,url,start,end,successCallback=defaultCallBack) =>{
     const select = ()=>{
         return axios.get(`${url}/${start}/${end}`)
     }
 
     return useQuery(queryKey,select,{
         onSuccess: (data) => {
+            successCallback(data)
             /*
             let oldDataSetIds = queryClient.getQueryData(queryKey)?.data?.map(x=>x["data_set_id"])
             let newDataSetIds = data?.data?.filter(x=>!oldDataSetIds?.includes(x["data_set_id"]))
