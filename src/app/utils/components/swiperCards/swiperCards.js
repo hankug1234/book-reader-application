@@ -62,7 +62,7 @@ const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex})=>{
 
 const SwiperCards = ({row,column, isCheckable=false, dataUrl, callback = () => {return false}}) => {
 
-    const [pageRange, setPageRange] = useState([0,row*column])
+    const [startIndex, setStartIndex] = useState(0)
     const [lastIndex,setLastIndex] = useState(0)
     const [currentIndex,setCurrentIndex] = useState(0)
     const [swiperInstance, setSwiperInstance] = useState(null);
@@ -81,15 +81,14 @@ const SwiperCards = ({row,column, isCheckable=false, dataUrl, callback = () => {
       console.log(`reach end index : ${lastIndex}`)
     }
 
-    const {data:datas,isLoading} = useDatasPageSelect([dataUrl+pageRange[0]+"_"+pageRange[1]]
-    ,dataUrl,pageRange[0],pageRange[1],loadSuccess)
+    const {data:datas,isLoading} = useDatasPageSelect([dataUrl+startIndex+"_"+(row*column)]
+    ,dataUrl,startIndex,(row*column),loadSuccess)
 
     const loadCurrentSlides  = (swiper) => {
 
           const index = swiper.activeIndex
           const start = index*row*column
-          const end = start + row*column
-          setPageRange([start, end])
+          setStartIndex(start)
           setCurrentIndex(index)
     }
 
