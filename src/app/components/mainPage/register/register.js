@@ -16,8 +16,8 @@ const Register = ()=>{
     return (
         <div className="train">
             <div>
-                <ResizableCard width={300} height={500} lotate={false} overlay={false}>
-                    <RegistedCardFormat registedData={path.indexOf("rvc") >= 0 ? rvcRegist : ttsRegist} type={path.indexOf("rvc") >= 0 ? "RVC" : "TTS"} width={300} height={500} />
+                <ResizableCard width={360} height={530} lotate={false} overlay={false}>
+                    <RegistedCardFormat registedData={path.indexOf("rvc") >= 0 ? rvcRegist : ttsRegist} type={path.indexOf("rvc") >= 0 ? "RVC" : "TTS"} width={360} height={530} />
                 </ResizableCard>
             </div>
             <div  className="model-train-form">
