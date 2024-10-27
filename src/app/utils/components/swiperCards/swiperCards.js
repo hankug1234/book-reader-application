@@ -12,7 +12,7 @@ import checkImage from './images/check.png'
 import { useState, useEffect} from "react";
 import { useDatasPageSelect } from "../../hooks/crud";
 
-const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex})=>{
+const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex,formater})=>{
   const [clicked, setClicked] = useState(new Set([]))
     const cardClick = (e,key) => {
       setClicked((s)=>{
@@ -37,16 +37,22 @@ const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex})=>{
                 [...Array(column)]?.map((e2,j) => {
                     return (
                       <div key={j} className={"cell"}>
-                        <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,slidIndex*row*column + (i*column + j))}}>
+                        {
+                          datas[(i*column + j)] 
+                          ? 
+                          <ResizableCard width={200} height={300} cardClick={(e) => {cardClick(e,slidIndex*row*column + (i*column + j))}}>
                             {
                               isCheckable && clicked?.has((i*column + j)) ? <img src={checkImage} alt="check" className="check-image"/> : <></>
                             }
                             {
                               datas[0] === "loading"
                               ? "loading"
-                              :`${datas[(i*column + j)]?.data_set_id}`
+                              : formater(datas[(i*column + j)])
                             }
-                        </ResizableCard>
+                          </ResizableCard>
+                          :
+                          <div style={{width:`${200}px`,height:`${300}px`}} />
+                        }
                       </div>
                     )
                 })
@@ -60,7 +66,7 @@ const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex})=>{
 }
 
 
-const SwiperCards = ({row,column, isCheckable=false, dataUrl, callback = () => {return false}}) => {
+const SwiperCards = ({row,column, isCheckable=false, dataUrl, formater = () => {},callback = () => {return false}}) => {
 
     const [startIndex, setStartIndex] = useState(0)
     const [lastIndex,setLastIndex] = useState(0)
@@ -114,7 +120,8 @@ const SwiperCards = ({row,column, isCheckable=false, dataUrl, callback = () => {
               [...Array(lastIndex+1)]?.map((_,key) =>{
                 return (
                   <SwiperSlide key={key}>
-                    <CardTable isCheckable={isCheckable} datas={isLoading ? ["loading"] : datas.data} row={row} column={column} callback={callback} slidIndex={key}/>
+                    <CardTable isCheckable={isCheckable} datas={isLoading ? ["loading"] : datas.data} row={row} 
+                    column={column} callback={callback} slidIndex={key} formater={formater}/>
                   </SwiperSlide>
                 )
               })
