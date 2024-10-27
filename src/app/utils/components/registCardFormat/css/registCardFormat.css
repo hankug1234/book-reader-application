@@ -1,9 +1,9 @@
-.dataInfo{
+.dataInfo_r{
     position: absolute;
     overflow: hidden;
     left: 0%;
     z-index: 300;
-    font-size: 13px;
+    font-size: 1.3vh;
     width: 80%;
     height: 17px;
     text-overflow: ellipsis;
@@ -11,7 +11,7 @@
     color: gold;
     transform:translate(25%,-50%);
   }
-  .dataName{
+  .dataName_r{
     overflow: hidden;
     position: absolute;
     bottom : 0px;
@@ -21,7 +21,7 @@
     background-color: rgb(0, 0, 0);
     transform:translate(-50%,-50%);
   }
-  .dataType{
+  .dataType_r{
     overflow: hidden;
     position: absolute;
     top : 0px;
@@ -34,7 +34,7 @@
     text-align: center;
   }
   
-  .dataDescription{
+  .dataDescription_r{
     border:  1px solid #eee;
     color: white;
     background-color:black ;
@@ -49,7 +49,7 @@
     padding: 5px;
   }
   
-  .descriptionLabel{
+  .descriptionLabel_r{
     position: absolute;
     left: 15%;
     bottom: 52%;
@@ -60,4 +60,11 @@
     text-overflow: ellipsis;
     color: gold;
   
+  }
+
+  .dataBackgroundImage{
+    background-image: url('../images/dataBackground.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
   }

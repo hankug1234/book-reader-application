@@ -18,12 +18,12 @@ const RegistedCardFormat = ({registedData,type,width,height}) => {
 
     return (
         <>
-            <h1 className={"dataType"}>{`${type} DATA`}</h1>
+            <h1 className={"dataType_r"}>{`${type} DATA`}</h1>
             <InfoList infos={Object.entries(registedData).map((items)=>`${items[0]} : ${items[1]}`).filter((s)=>infoFilter(s)===true)}/>
-            <label for={"dataDescription"} className={"descriptionLabel"}>{"description:"}</label>
-            <div id={"dataDescription"} className={"dataDescription"}>{registedData.description}</div>
-            <h1 className={"dataName"}>{registedData.data_set_name}</h1>
-            <div style={{width: `${width}px`,height: `${height}px`, backgroundColor: "black", position:"absolute", top:"0%" }}/>
+            <label for={"dataDescription_r"} className={"descriptionLabel_r"}>{"description:"}</label>
+            <div id={"dataDescription_r"} className={"dataDescription_r"}>{registedData.description}</div>
+            <h1 className={"dataName_r"}>{registedData.data_set_name}</h1>
+            <div className={"dataBackgroundImage"} style={{width: `${width}px`,height: `${height}px`, position:"absolute", top:"0%"}}/>
         </>
     )
 }
