@@ -51,8 +51,8 @@ function App() {
         </Route>
 
         <Route element={<Datas/>}>
-          <Route path="/datas/tts" element={<TtsDataList/>}/>
-          <Route path="/datas/rvc" element={<RvcDataList/>}/>
+          <Route path="/datas/tts" element={<TtsDataList width={288} height={424}/>}/>
+          <Route path="/datas/rvc" element={<RvcDataList width={288} height={424}/>}/>
         </Route>
 
         <Route element={<Data/>}>

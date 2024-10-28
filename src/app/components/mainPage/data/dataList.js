@@ -8,24 +8,24 @@ const registedDataFormater = (data,type,width,height)=>{
     )
 }
 
-const RvcDataList = ({row=2,column=4})=>{
+const RvcDataList = ({row=2,column=4,width,height})=>{
 
     const dataUrl = useSelector(state=>state.urls.data_page_rvc)
 
     return (
         <div>
-            <SwiperCards row={row} column={column} isCheckable={false} dataUrl={dataUrl} formater={(data)=>registedDataFormater(data,"RVC",200,300)}/>
+            <SwiperCards row={row} column={column} isCheckable={false} width={width} height={height} dataUrl={dataUrl} formater={(data,width,height)=>registedDataFormater(data,"RVC",width,height)}/>
         </div>
     );
 }
 
-const TtsDataList = ({row=2,column=4})=>{
+const TtsDataList = ({row=2,column=4,width,height})=>{
 
     const dataUrl = useSelector(state=>state.urls.data_page_tts)
 
     return (
         <div>
-            <SwiperCards row={row} column={column} isCheckable={false} dataUrl={dataUrl} formater={(data)=>registedDataFormater(data,"RVC",200,300)}/>
+            <SwiperCards row={row} column={column} isCheckable={false} width={width} height={height} dataUrl={dataUrl} formater={(data,width,height)=>registedDataFormater(data,"RVC",width,height)}/>
         </div>
     );
 }
