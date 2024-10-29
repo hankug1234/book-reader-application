@@ -5,18 +5,44 @@ import FileUploader from "../../../utils/components/fileUpload/fileUpload"
 import { useSelector, useDispatch } from "react-redux"
 import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setLanguage,setImageName} from '../../../../features/train/ttsTrainSlice';
 import { setTtsImageAsync } from "../../../../features/train/ttsTrainSlice"
+import { useInsert } from "../../../utils/hooks/crud"
+import { useEffect } from "react"
+import RequestUploader from "../../../utils/components/fileUpload/requestUpload"
 
 const TtsTrain = () => {
 
     const ttsTrainState = useSelector((state) => state.ttsTrain)
-    const {register} = useForm(ttsTrainState)
+    const {register,handleSubmit} = useForm(ttsTrainState)
     const dispatch = useDispatch()
     const [onclick] = useOutletContext()
+
+    const url = useSelector((state)=>state.urls.train_tts)
+
+    const {mutate: post,isSuccess: success, isLoading:loading} = useInsert([])
+
+    const rvcRegistClear = ()=> {
+        dispatch(setModelName(""))
+        dispatch(setBatchSize(null))
+        dispatch(setSaveEpoch(null))
+        dispatch(setTotalEpoch(null))
+        dispatch(setImageName(""))
+        dispatch(setLanguage(""))
+    }
+
+    useEffect(()=>{
+        if(success){
+            rvcRegistClear()
+        }
+    },[success])
+
+    const submit = (_) => {
+        post({url:url, data:JSON.stringify(ttsTrainState)})
+    }
     
     return (
         <>
         {
-            <form>
+            <form onSubmit={handleSubmit(submit)}>
                 <br/>
                 <input {...register("modelName", { required: true })}
                  onChange={(e)=>dispatch(setModelName(e.target.value))}
@@ -44,6 +70,11 @@ const TtsTrain = () => {
                         "SELECT TRAIN DATAS"
                     }
                 </button>
+                <br/>
+                <br/>
+                {
+                    loading?"loading":<RequestUploader/>
+                }
             </form>
 
         }

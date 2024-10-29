@@ -14,7 +14,7 @@ import { useDatasPageSelect } from "../../hooks/crud";
 
 const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex,formater,width,height})=>{
   const [clicked, setClicked] = useState(new Set([]))
-    const cardClick = (e,key) => {
+    const cardClick = (e,key,data) => {
       setClicked((s)=>{
         var ns = new Set([...s])
         if(s.has(key)){
@@ -24,7 +24,7 @@ const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex,formater
         }
         return ns
       })
-      callback ? callback() : (()=>false)()
+      callback ? callback(e,data) : (()=>false)()
     }
 
   return (
@@ -40,7 +40,8 @@ const CardTable = ({row=2,column=4,isCheckable,callback,datas,slidIndex,formater
                         {
                           datas[(i*column + j)] 
                           ? 
-                          <ResizableCard width={width} height={height} overlay={false} cardClick={(e) => {cardClick(e,slidIndex*row*column + (i*column + j))}}>
+                          <ResizableCard width={width} height={height} overlay={false} cardClick={(e) => {cardClick(e
+                          ,slidIndex*row*column + (i*column + j),datas[(i*column + j)])}}>
                             {
                               isCheckable && clicked?.has((i*column + j)) ? <img src={checkImage} alt="check" className="check-image"/> : <></>
                             }
@@ -84,7 +85,6 @@ const SwiperCards = ({row,column, isCheckable=false, dataUrl,width, height, form
       if(newDatas?.data?.length == row*column && currentIndex === lastIndex){
           setLastIndex(oldState => oldState + 1)
       }
-      console.log(`reach end index : ${lastIndex}`)
     }
 
     const {data:datas,isLoading} = useDatasPageSelect([dataUrl+startIndex+"_"+(row*column)]

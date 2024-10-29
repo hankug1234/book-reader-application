@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Card from '../card/card';
+import ResizableCard from '../resizableCard/resizableCard';
 import MusicNoteCircle from '../musicNoteCircleBackground/musicNoteCircle';
 
 import 'swiper/css';
@@ -10,11 +10,44 @@ import './css/swiperPanorama.css';
 import { EffectCoverflow, Pagination} from 'swiper/modules';
 import { useNavigate } from 'react-router-dom';
 
-const SwiperPanorama = ({url}) => {
+import { useDatasPageSelect } from '../../hooks/crud';
+import { useState, useEffect } from 'react';
+
+const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type}) => {
+
+
+    const [startIndex, setStartIndex] = useState(0)
+    const [lastIndex,setLastIndex] = useState(0)
+    const [currentIndex,setCurrentIndex] = useState(0)
+    const [swiperInstance, setSwiperInstance] = useState(null);
+
+    useEffect(() => {
+      if (swiperInstance) {
+        swiperInstance.update();
+      }
+    },[swiperInstance]);
+
+
+    const loadSuccess = (newDatas) => {
+      if(newDatas?.data?.length <= 5 && currentIndex === lastIndex){
+          setLastIndex(oldState => oldState + newDatas?.data?.length)
+      }
+    }
+
+    const {data:datas,isLoading} = useDatasPageSelect([dataUrl+startIndex+"_"+5]
+    ,dataUrl,startIndex,5,loadSuccess)
+
+    const loadCurrentSlides  = (swiper) => {
+
+          const index = swiper.activeIndex
+          const start = index
+          setStartIndex(start)
+          setCurrentIndex(index)
+    }
   
     const navigate = useNavigate()
     const cardClick = (e) => {
-      navigate(url)
+      navigate()
     }
 
     return (
@@ -22,6 +55,16 @@ const SwiperPanorama = ({url}) => {
         <MusicNoteCircle/>
         <div className="swiperPanorama">
           <Swiper
+
+            resistance={true}
+            navigation={true}
+            onActiveIndexChange={loadCurrentSlides}
+
+            watchOverflow={false}
+            observer={true}
+            observeParents={true}
+            onSwiper={setSwiperInstance}
+
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={false}
@@ -42,11 +85,15 @@ const SwiperPanorama = ({url}) => {
             className="mySwiper"
           >
             {
-                [...Array(12).keys()].map( path =>{
+                [...Array(lastIndex).keys()].map( path =>{
                 return (
                     <SwiperSlide key={path}>
                       <div className="paranomaCard">
-                        <Card cardClick={cardClick}/>
+                        <ResizableCard width={width} height={height} cardClick={cardClick}>
+                          {
+                            formater(width,height,type)
+                          }
+                        </ResizableCard>
                       </div>
                     </SwiperSlide>
                 )

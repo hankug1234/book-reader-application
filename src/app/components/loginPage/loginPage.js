@@ -21,7 +21,7 @@ const LoginPage = () => {
         <br/>
         <div>
           <Link className="link" to="">sign up</Link>
-          <Link className="link sign-in" to="/models">sign in</Link>
+          <Link className="link sign-in" to="/models/tts">sign in</Link>
         </div>
       </header>
     </div>

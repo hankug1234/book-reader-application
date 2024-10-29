@@ -11,10 +11,10 @@ const MainPage = () => {
     <>
         <div className="main-header">
             <div className="topnav">
-                <Link className={ location.indexOf("models") >= 0 ? "topnav-link-current" : "topnav-link"} to="/models">MODELS</Link>
+                <Link className={ location.indexOf("models") >= 0 ? "topnav-link-current" : "topnav-link"} to="/models/tts">MODELS</Link>
                 <Link className={ location.indexOf("datas") >= 0 ? "topnav-link-current" : "topnav-link"} to="/datas/tts">DATAS</Link>
-                <Link className={ location.indexOf("train") >= 0 ? "topnav-link-current" : "topnav-link"}  to="/rvc-train">TRAIN</Link>
-                <Link className={ location.indexOf("data-register") >= 0 ? "topnav-link-current" : "topnav-link"}  to="/rvc-data-register">REGIST</Link>
+                <Link className={ location.indexOf("train") >= 0 ? "topnav-link-current" : "topnav-link"}  to="/train/tts">TRAIN</Link>
+                <Link className={ location.indexOf("data-register") >= 0 ? "topnav-link-current" : "topnav-link"}  to="/regist/data/tts">REGIST</Link>
                 <Link className={"topnav-link logOut"}  to="/">LOG OUT</Link>
             </div>
         </div>

@@ -9,6 +9,7 @@ const initialState = {
     image: defaultImage,
     image_name: null,
     data_set_id: "",
+    test_script: ""
 }
 
 export const setRvcImageAsync = createAsyncThunk(
@@ -52,6 +53,9 @@ export const trainSlice = createSlice({
       setImageName: (state,action) => {
         state.image_name = action.payload;
       },
+      setImage: (state,action) => {
+        state.image = action.payload;
+      }
     },
     extraReducers: (builder) => {
       builder
@@ -64,5 +68,5 @@ export const trainSlice = createSlice({
     },
   });
 
-  export const {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setDataset,setImageName}  = trainSlice.actions;
+  export const {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setDataset,setImageName,setImage}  = trainSlice.actions;
   export default trainSlice.reducer;

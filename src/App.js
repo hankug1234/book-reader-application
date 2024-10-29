@@ -22,6 +22,8 @@ import DataInfoRvc from './app/components/mainPage/data/dataInfoRvc';
 import DataInfoTts from './app/components/mainPage/data/dataInfoTts';
 import Datas from './app/components/mainPage/data/datas';
 import {RvcDataList, TtsDataList} from './app/components/mainPage/data/dataList';
+import Models from './app/components/mainPage/models/models';
+import { TtsModelList, RvcModelList } from './app/components/mainPage/models/modelList';
 
 function App() {
   return (
@@ -31,17 +33,21 @@ function App() {
 
         <Route element={<Train/>}>
           <Route element={<TrainRegisterForm/>}>
-            <Route path="/tts-train" element={<TtsTrain/>}/>
-            <Route path="/rvc-train" element={<RvcTrain/>}/>
+            <Route path="/train/tts" element={<TtsTrain/>}/>
+            <Route path="/train/rvc" element={<RvcTrain/>}/>
           </Route>
         </Route>
 
         <Route element={<Register/>}>
-          <Route path="/tts-data-register" element={<TtsDataRegister/>}/>
-          <Route path="/rvc-data-register" element={<RvcDataRegister/>}/>
+          <Route path="/regist/data/tts" element={<TtsDataRegister/>}/>
+          <Route path="/regist/data/rvc" element={<RvcDataRegister/>}/>
         </Route>
 
-        <Route path="/models" element={<ModelList/>}/>
+        <Route element={<Models/>}>
+          <Route path="/models/tts" element={<TtsModelList/>}/>
+          <Route path="/models/rvc" element={<RvcModelList/>}/>
+        </Route>
+
         <Route element={<Model/>}>
           <Route element={<ModelInfoForm/>}>
             <Route path="/model-info/:type" element={<ModelInfo/>}/>
@@ -56,8 +62,8 @@ function App() {
         </Route>
 
         <Route element={<Data/>}>
-          <Route path="/data-info/rvc" element={<DataInfoRvc/>}/>
-          <Route path="/data-info/tts" element={<DataInfoTts/>}/>
+          <Route path="/data/rvc" element={<DataInfoRvc/>}/>
+          <Route path="/data/tts" element={<DataInfoTts/>}/>
         </Route>
         <Route path= "/test" element={<CardTest/>}/>
 

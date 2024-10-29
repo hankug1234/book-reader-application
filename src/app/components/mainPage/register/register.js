@@ -22,8 +22,8 @@ const Register = ()=>{
             </div>
             <div  className="model-train-form">
                 <div>
-                    <Link className={ path.indexOf("rvc") >= 0 ? "topnav-link-current" : "topnav-link"} to="/rvc-data-register">RVC</Link>
-                    <Link className={ path.indexOf("tts") >= 0 ? "topnav-link-current" : "topnav-link"} to="/tts-data-register">TTS</Link>
+                    <Link className={ path.indexOf("rvc") >= 0 ? "topnav-link-current" : "topnav-link"} to="/regist/data/rvc">RVC</Link>
+                    <Link className={ path.indexOf("tts") >= 0 ? "topnav-link-current" : "topnav-link"} to="/regist/data/tts">TTS</Link>
                 </div>
                 <Outlet/>
             </div>

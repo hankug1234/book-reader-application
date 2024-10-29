@@ -2,20 +2,50 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import FileUploader from "../../../utils/components/fileUpload/fileUpload"
 import { useOutletContext } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setImageName} from '../../../../features/train/rvcTrainSlice';
+import {setModelName,setBatchSize,setSaveEpoch,setTotalEpoch,setImageName,setDataset,setImage} from '../../../../features/train/rvcTrainSlice';
 import { setRvcImageAsync } from "../../../../features/train/rvcTrainSlice";
+import { useInsert } from "../../../utils/hooks/crud";
+import { useEffect } from "react";
+import RequestUploader from "../../../utils/components/fileUpload/requestUpload";
+import defaltImage from "../images/logo.svg"
 
 const RvcTrain = () => {
 
+    const url = useSelector((state)=>state.urls.train_rvc)
+
+    const {mutate: post,isSuccess: success, isLoading:loading} = useInsert([])
+
     const rvcTrainState = useSelector((state) => state.rvcTrain)
-    const {register} = useForm(rvcTrainState)
+
+    const {register,handleSubmit} = useForm(rvcTrainState)
+
     const dispatch = useDispatch()
     const [onclick] = useOutletContext()
+
+    const rvcTrainClear = ()=> {
+        dispatch(setModelName(""))
+        dispatch(setBatchSize(null))
+        dispatch(setSaveEpoch(null))
+        dispatch(setTotalEpoch(null))
+        dispatch(setImageName(""))
+        dispatch(setImage(defaltImage))
+        dispatch(setDataset(""))
+    }
+
+    useEffect(()=>{
+        if(success){
+            rvcTrainClear()
+        }
+    },[success])
+
+    const submit = (_) => {
+        post({url:url, data:JSON.stringify(rvcTrainState)})
+    }
 
     return (
         <>
         {
-            <form>
+            <form onSubmit={handleSubmit(submit)}>
                 <br/>
                 <input {...register("modelName", { required: true })}
                  onChange={(e)=>dispatch(setModelName(e.target.value))}
@@ -41,6 +71,11 @@ const RvcTrain = () => {
                         "SELECT TRAIN DATAS"
                     }
                 </button>
+                <br/>
+                <br/>
+                {
+                    loading?"loading":<RequestUploader/>
+                }
             </form>
         }
         </>

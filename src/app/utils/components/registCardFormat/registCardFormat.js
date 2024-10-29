@@ -4,7 +4,7 @@ const InfoList =  ({infos}) => {
     return (
         <>
         {
-            infos.map((info,i)=><h1 key={i} style={{bottom:`${70 - 10*i}%`}} className={"dataInfo_r nanum-brush-script-regular"}>{info}</h1>)
+            infos.map((info,i)=><h1 key={i} style={{bottom:`${70 - 15*i}%`}} className={"dataInfo_r nanum-brush-script-regular"}>{info}</h1>)
         }
         </>
     )
