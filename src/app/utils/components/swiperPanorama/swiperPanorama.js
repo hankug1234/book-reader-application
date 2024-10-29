@@ -29,7 +29,7 @@ const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type}) => 
 
 
     const loadSuccess = (newDatas) => {
-      if(newDatas?.data?.length <= 5 && currentIndex === lastIndex){
+      if(newDatas?.data?.length > 0 && currentIndex === lastIndex){
           setLastIndex(oldState => oldState + newDatas?.data?.length)
       }
     }
@@ -85,13 +85,13 @@ const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type}) => 
             className="mySwiper"
           >
             {
-                [...Array(lastIndex).keys()].map( path =>{
+                [...Array(lastIndex).keys()].map( (path,index) =>{
                 return (
                     <SwiperSlide key={path}>
                       <div className="paranomaCard">
                         <ResizableCard width={width} height={height} cardClick={cardClick}>
                           {
-                            formater(width,height,type)
+                            isLoading?"loading...":formater(width,height,type,datas.data[index])
                           }
                         </ResizableCard>
                       </div>
