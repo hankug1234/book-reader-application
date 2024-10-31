@@ -11,31 +11,28 @@ import { EffectCoverflow, Pagination} from 'swiper/modules';
 import { useNavigate } from 'react-router-dom';
 
 import { useDatasPageSelect } from '../../hooks/crud';
-import { useState } from 'react';
+import { useState} from 'react';
 
-const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type}) => {
+const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type,slideAppender}) => {
 
-
-    const [startIndex, setStartIndex] = useState(0)
     const [lastIndex,setLastIndex] = useState(0)
     const [currentIndex,setCurrentIndex] = useState(0)
-
+    const [offset, setOffset] = useState(5)
+    const [slides, setSlides] = useState({sequence:[]})
 
     const loadSuccess = (newDatas) => {
-      if(newDatas?.data?.length > 0 && currentIndex === lastIndex){
+      if(newDatas?.data?.length > 0 && slideAppender(setSlides,slides,newDatas.data)){
           setLastIndex(oldState => oldState + newDatas?.data?.length)
       }
     }
 
-    const {data:datas,isLoading} = useDatasPageSelect([dataUrl+startIndex+"_"+5]
-    ,dataUrl,startIndex,5,loadSuccess)
+    const {isLoading} = useDatasPageSelect([dataUrl+(currentIndex+5*(offset===5?0:1))+"_"+offset]
+    ,dataUrl,currentIndex+5*(offset===5?0:1),offset,loadSuccess)
 
     const loadCurrentSlides  = (swiper) => {
-
-          const index = swiper.activeIndex
-          if (index !== currentIndex) {
-            setStartIndex(index);
-            setCurrentIndex(index);
+          setCurrentIndex(swiper.activeIndex)
+          if(offset === 5){
+            setOffset(1)
           }
     }
   
@@ -78,28 +75,21 @@ const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type}) => 
             className="mySwiper"
           >
             {
-                [...Array(lastIndex).keys()].map( (path,index) =>{
+                [...Array(lastIndex).keys()].map( (_, index) =>{
                 return (
-                  <>
-                  {
-                    datas?.data[index]
-                    ?
                     <SwiperSlide key={index}>
                       <div className="paranomaCard">
                         <ResizableCard width={width} height={height} cardClick={cardClick}>
                           {
-                            isLoading?"loading...":formater(width,height,type,datas.data[index])
+                            index === currentIndex && isLoading ? "loading..." : formater(width,height,type,slides[slides.sequence[index]])
                           }
                         </ResizableCard>
                       </div>
                     </SwiperSlide>
-                    :
-                    <></>
-                    
+              
+                    )
                   }
-                  </>
                 )
-                })
             }
           </Swiper>
         </div>
