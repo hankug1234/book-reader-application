@@ -10,8 +10,8 @@ const formater = (width,height,type,trainData) => {
 
 const slideAppender = (setSlides,slides,datas)=>{
     var result = false 
-
-    var newState = {...slides};
+    console.log(datas)
+    var newState = {...slides}
     datas.forEach((data)=>{
         if(Object.keys(slides).includes(`${data.id}`)){
             newState[`${data.id}`] = data 

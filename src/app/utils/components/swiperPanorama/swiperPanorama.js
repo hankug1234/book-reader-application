@@ -27,7 +27,7 @@ const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type,slide
     }
 
     const {isLoading} = useDatasPageSelect([dataUrl+(currentIndex+5*(offset===5?0:1))+"_"+offset]
-    ,dataUrl,currentIndex+5*(offset===5?0:1),offset,loadSuccess)
+    ,dataUrl,(currentIndex+5*(offset===5?0:1)),offset,loadSuccess)
 
     const loadCurrentSlides  = (swiper) => {
           setCurrentIndex(swiper.activeIndex)
@@ -75,13 +75,13 @@ const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type,slide
             className="mySwiper"
           >
             {
-                [...Array(lastIndex).keys()].map( (_, index) =>{
+                [...Array(lastIndex).keys()].map( (value, index) =>{
                 return (
                     <SwiperSlide key={index}>
                       <div className="paranomaCard">
                         <ResizableCard width={width} height={height} cardClick={cardClick}>
                           {
-                            index === currentIndex && isLoading ? "loading..." : formater(width,height,type,slides[slides.sequence[index]])
+                            formater(width,height,type,slides[slides.sequence[index]])
                           }
                         </ResizableCard>
                       </div>
