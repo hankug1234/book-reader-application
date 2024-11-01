@@ -28,10 +28,12 @@ const SwiperPanorama = ({dataUrl,formater=()=>{},width=270,height=450,type,slide
           }
       }
     }
-    const {isLoading} = useDatasPageSelect([dataUrl+(currentIndex+5*(offset===5?0:1))+"_"+offset]
-    ,dataUrl,(currentIndex+5*(offset===5?0:1)),offset,loadSuccess)
+    const appendix = currentIndex === lastIndex ? 1 : 0
+    const {isLoading} = useDatasPageSelect([dataUrl+currentIndex+"_"+offset+appendix]
+    ,dataUrl,currentIndex,offset+appendix,loadSuccess)
 
     const loadCurrentSlides  = (swiper) => {
+          console.log(swiper.activeIndex?swiper.activeIndex:0)
           setCurrentIndex(swiper.activeIndex?swiper.activeIndex:0)
     }
   
