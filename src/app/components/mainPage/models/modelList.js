@@ -23,6 +23,7 @@ const slideAppender = (setSlides,slides,datas)=>{
     })
 
     setSlides(newState)
+    console.log(newState)
     return result;
 }
 
